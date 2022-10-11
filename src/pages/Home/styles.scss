@@ -1,0 +1,29 @@
+.home {}
+
+.homeTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: red;
+
+  &::before {
+    content: "😊";
+    margin-right: 0.5rem;
+    font-size: 20px;
+  }
+
+}
+
+.homeParagraph {
+
+  font-family: "IBM Plex Mono", monospace;
+  &::first-letter {
+    text-transform: uppercase;
+    color: hotpink;
+    padding: 0 .3rem;
+    margin: 0 .15rem 0 0;
+    border: 2px solid;
+    border-radius: 6px;
+  }
+}
