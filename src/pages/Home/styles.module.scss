@@ -8,6 +8,7 @@
   background: url("../../assets/img/astepi-background.jpg") no-repeat top center;
   display: flex;
   height: 500px;
+  align-items: center;
 }
 
 .modalVermelho {
@@ -68,4 +69,106 @@
 
 .modalVermelhoLogoUnicap {
   text-align: center;
+}
+
+.section2 {
+  background: #fff;
+  display: flex;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quemSomos {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 20px auto 30px auto;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.quemSomosTitulo {
+  max-width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.quemSomosT1 {
+  font-size: 28px;
+  margin: 9px 0;
+}
+
+.quemSomosT2 {
+  font-size: 46px;
+  color: #68141c;
+  margin: 9px 0;
+}
+
+.quemSomosT3 {
+  font-size: 12px;
+  margin: 9px 0;
+}
+
+.quemSomosDescricao {
+  font-size: 24px;
+  width: 800px;
+  text-align: justify;
+  word-break: keep-all;
+  color: #68141c;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.quemSomosLinhaInicio {
+  display: flex;
+  flex-direction: row;
+
+  &::after {
+    margin-bottom: 35px;
+    content: '';
+    display: flex;
+    border-bottom: 2px solid #b07c1c;
+    height: 20px;
+    width: 86%;
+    margin-left: -36px;
+  }
+}
+
+.quemSomosConteudo {
+  display: flex;
+  flex-direction: row;
+  
+  &::before {
+    content: '';
+    display: flex;
+    border-right: 2px solid #b07c1c;
+    height: 112px;
+    margin-right: 35px;
+    margin-left: -36px;
+    margin-top: -35px;
+  }
+}
+
+.quemSomosLinhaFinal {
+  display: flex;
+  flex-direction: row;
+
+  &::before {
+    content: '';
+    display: flex;
+    border-bottom: 2px solid #185c34;
+    width: 88%;
+    transform: translateX(20%);
+    margin-top: 35px;
+  }
+
+  &::after {
+    content: '';
+    display: flex;
+    border-right: 2px solid #185c34;
+    height: 112px;
+    transform: translateX(140px);
+    margin-top: -70px;
+  }
 }
