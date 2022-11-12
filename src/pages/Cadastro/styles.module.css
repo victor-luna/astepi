@@ -1,0 +1,84 @@
+.container{
+
+background-color: #6E2B2E;
+height: 100px;
+padding-top: 15px;
+
+}
+
+.inputnome{
+
+color:#6E2B2E;
+border: none;
+padding-left: 35px;
+font-family: 'Roboto', sans-serif;
+margin: 20px;
+
+}
+
+
+.inputconectar{
+
+    color:#6E2B2E;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 35px;
+    margin: 20px;
+}
+
+
+.inputdocumentos{
+
+    color:#6E2B2E;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 35px;
+    margin-left: 350px;
+    margin-top: -150px;
+}
+
+
+.inputendereco{
+    
+    color:#6E2B2E;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 35px;
+    margin-left: 700px;
+    margin-top: -44px;
+    margin-bottom: 80px;
+
+}
+
+
+.button{
+
+color: #6E2B2E;
+border: none;
+height: 50px;
+background-color: #D2AE6D ;
+font-family: 'Roboto', sans-serif;
+margin: 220px 70px;
+font-weight: bold;
+
+}
+
+.h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;  
+    text-align: center;
+    color: #D2AE6D;
+
+}
+
+.p{
+
+    font-family: 'Roboto', sans-serif;
+    padding: 55px;
+    font-weight: bold;
+  
+}
+
+
+
+
