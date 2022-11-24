@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
-
+import logo from "../../assets/img/logo-normal.jpg";
 
 function Login() {
     
@@ -10,23 +10,29 @@ function Login() {
 
   return (
       <div className={styles.containerLogin} >        
-        <div className={styles.modalCentral}>
+        <div className={styles.modalCentral}>   
           <div className={styles.modalConteudo}>
-            <h1>Login</h1>
+            <h1 className={styles.h1}>Login</h1>
+
+            <li className={styles.navItem}>
+             <img alt="logo" src={logo} className={styles.headerLogo}  width="100" height="100" />
+             </li>
 
             <div className='input'>
-              <input type="user" placeholder='Usuario' />
+            <h5 className={styles.h5}> Digite seu email ou cpf :<br></br></h5>
+              <input type="user" className={styles.input} placeholder='Usuario' />
             </div>
             <br></br>
             <div className='input'>
-              <input type="password" placeholder='Senha' />
+            <h5 className={styles.h5}>Digite sua senha :<br></br></h5>
+              <input type="password"  className={styles.input} placeholder='Senha' />
             </div>
             <br></br>
             <div className='button-login'>
-            <button className='button-inicio' onClick={(() => navigate("/"))} >Inicio</button>
-            <button className='button-acessar'>Acessar</button>
+            <button className={styles.buttoninicio} onClick={(() => navigate("/"))} >Inicio</button>
+            <button className={styles.buttonacessar} onClick={(() =>navigate ("/Agendamento"))} >Acessar</button>
             </div>
-            <div className='cadastro'>
+            <div className={styles.cadastro}>
               <a href="/cadastro">Não possui conta?</a>
             </div>
           </div>

@@ -1,23 +1,81 @@
-.container{
 
-background-color: #6E2B2E;
-height: 100px;
+
+
+.container{
+   
+background-color: #6E2B2E ;
+height: 95px;
 padding-top: 15px;
+flex-direction: column;
+background-image: linear-gradient(
+    to left right,    
+    #6E2B2E 65%,
+      #8b4343 
+);
+list-style: none;
+}
+
+
+.headerLogo{
+
+    padding-bottom: 17px;
+    height: 95px;
+    width: 95px;
+    list-style: none;
+}
+
+
+
+
+.linha1{
+
+    border-right: 3px solid #185c34;
+    content: "";
+    display: flex;
+    height: 302px;
+    margin-top: -500px;
+    -webkit-transform: translateX(140px);
+    transform: translateX(140px);
+    transform: translateY(485px);
+    margin-right: 1130px;
+    
+}
+
+.linha2{
+
+    border-right: 3px solid #185c34;
+    content: "";
+    display: flex;
+    height: 292px;
+    margin-top: -270px;
+    -webkit-transform: translateX(140px);
+    transform: translateX(140px);
+    transform: translateY(450px);
+    margin-right: 790px;
+    padding-top: 400px ;
+
 
 }
 
-.inputnome{
+.primeirobloco{
 
 color:#6E2B2E;
 border: none;
 padding-left: 35px;
 font-family: 'Roboto', sans-serif;
 margin: 20px;
+outline: unset;
+}
 
+.inputnome{
+
+    margin-bottom: 15px;
+    
 }
 
 
-.inputconectar{
+
+.segundobloco{
 
     color:#6E2B2E;
     border: none;
@@ -26,40 +84,74 @@ margin: 20px;
     margin: 20px;
 }
 
+.inputemail{
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
 
-.inputdocumentos{
+.inputconpass{
+
+    margin-top: 15px;
+}
+
+
+.terceirobloco{
 
     color:#6E2B2E;
     border: none;
     font-family: 'Roboto', sans-serif;
     padding-left: 35px;
     margin-left: 350px;
-    margin-top: -150px;
+    margin-top: -375px;
+}
+
+.inputcpf{
+
+    margin-bottom: 15px;
 }
 
 
-.inputendereco{
+.quartobloco{
     
     color:#6E2B2E;
     border: none;
     font-family: 'Roboto', sans-serif;
     padding-left: 35px;
     margin-left: 700px;
-    margin-top: -44px;
-    margin-bottom: 80px;
+    margin-top: -125px;
+    margin-bottom: 90px;
 
+}
+
+.inputendereco{
+
+    margin-bottom: 15px;
+    
 }
 
 
 .button{
 
 color: #6E2B2E;
-border: none;
-height: 50px;
-background-color: #D2AE6D ;
+width: 140px;
+height: 55px;
+background-color: #d3b47a ;
 font-family: 'Roboto', sans-serif;
 margin: 220px 70px;
 font-weight: bold;
+border-radius: 20px;
+text-transform: uppercase;
+border: none;
+transition-duration: 0.4s;
+cursor: pointer;
+margin-top: 200px;
+}
+
+
+.button:hover{
+
+    background-color: #c9a35b; /* Green */
+    color: #6E2B2E;
 
 }
 
@@ -67,8 +159,10 @@ font-weight: bold;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;  
     text-align: center;
-    color: #D2AE6D;
-
+    color: #c6a567;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: -90px;
 }
 
 .p{
@@ -76,6 +170,7 @@ font-weight: bold;
     font-family: 'Roboto', sans-serif;
     padding: 55px;
     font-weight: bold;
+    margin-bottom: 80px;
   
 }
 

@@ -4,15 +4,31 @@
     height: 803px;
     align-items: center;
     width: 100%;
+    justify-content: center;
+    list-style: none;
+   
+    
 }
 
+.headerLogo{
+
+    
+    padding-left: 10px;
+    margin-left: -195px;
+    margin-top: -80px;
+    height: 95px;
+    width: auto;
+    max-height: 95px;
+    
+}
 
 .modalCentral {
+    
     background: #88141c;
+    opacity: 0.9;
     position: relative;
-    width: 50%;
-    height: 40%;
-    margin-left: 25%;
+    width: 40%;
+    height: 43%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -21,15 +37,13 @@
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: #fff;
+    border: none;
 }
 
-.input{
-
-padding: 15px;
-border: none;
-outline: none;
 
 
+.modalCentral::placeholder {
+    color: #88141c;
 }
 
 .button-login{
@@ -40,15 +54,77 @@ color: #88141c;
 
 }
 
+.buttoninicio{
+
+    background-color: #D2AE6D;
+    border: none;
+    color: #88141c;
+    border-radius: 20px; 
+    text-transform: uppercase;
+    width: 90px;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.buttoninicio:hover{
+
+    background-color: #c9a35b; /*  */
+    color: #6E2B2E;
+
+}
+
+.buttonacessar{
+
+    background-color: #D2AE6D;
+    border: none;
+    color: #88141c;
+    margin-left: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    width: 90px;
+    height: 30px;
+}
+
+.buttonacessar:hover{
+
+    background-color: #c9a35b; /* Green */
+    color: #6E2B2E;
+
+
+}
+
 .cadastro{
 color:#D2AE6D;
-
+font-size: 14px;
 
 }
 
 .h1{
 
  font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color:#D2AE6D ;
+}
+
+.h5{
+
+    font-family: 'Roboto', sans-serif;
+    color:#D2AE6D;
+    text-transform: uppercase;
+    font-size: 12px;
+
+}
+
+.input{
+
+    border-radius: 5px;
+    border:none;
+}
+
+.input:focus{
+
+border:none;
+outline: none;
 
 }
 
