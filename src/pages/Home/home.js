@@ -2,6 +2,10 @@ import React from "react";
 import Header from "../partials/header";
 import styles from "./styles.module.scss"
 import LogoBranca from '../../assets/img/logo-branca-unicap.png'
+import MapIcon from '../../assets/img/mapIcon.png'
+import logoFooter from '../../assets/img/logo-unicap-rodape.png'
+import logoFooter2 from '../../assets/img/logo-unicap-rodape2.png'
+import logoFooter3 from '../../assets/img/logo-normal.jpg'
 
 function Home() {
   return (
@@ -68,6 +72,59 @@ function Home() {
           </div>
 
       </section>
+
+
+      <section className={styles.section4}>
+
+        <div>
+          <form>
+            <div className={styles.contato}>
+              <legend>CONTATO</legend>
+              <p className={styles.paragrafoContato}>
+                <label for="name">NOME:</label>
+                <input type="text" name="name" id="name" placeholder="Digite seu nome" />
+              </p>
+              <p className={styles.paragrafoContato}>
+                <label for="email">EMAIL:</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" />
+              </p>
+              <p className={styles.paragrafoContato}>
+                <label for="number">FONE:</label>
+                <input type="number" name="number" id="number" placeholder="Digite seu telefone" />
+              </p>
+              <p className={styles.paragrafoContato}>
+                <label for="mensagem">MENSAGEM:</label>
+              </p>
+
+              <textarea className={styles.textArea} id="mensagem" name="mensagem" rows="5" cols="33" placeholder="Digite sua mensagem..." />
+
+              <button  className={styles.buttonSubmit}>Enviar</button>
+            </div>
+          </form>
+        </div>
+
+        <div className={styles.contato2}>
+          <h2>ONDE ESTAMOS</h2>
+          <p className={styles.paragrafoContato2}>SEDE – Rua Afonso Pena, 249, Recife-PE</p>
+          <img alt="logo" src={MapIcon} width="100" height="100" />
+        </div>
+
+      </section>
+
+      <section className={styles.section5}>
+        <div className={styles.footer}>
+          <p className={styles.footerParagrafo}>TELEFONE: (81) 2119.4157</p>
+          <p className={styles.footerParagrafo2}>EMAIL: astepi@unicap.br</p>
+        </div>
+
+        <div className={styles.footer2}>
+          <img alt="logo" src={logoFooter3} width="100" height="100" />
+          <img alt="logo" src={logoFooter} width="100" height="100" />
+          <img alt="logo" src={logoFooter2} width="100" height="100" />
+        </div>
+      </section>
+      
+      <p className={styles.finalText}>TODOS OS DIREITOS RESERVADOS.</p>
 
     </div>
   )
