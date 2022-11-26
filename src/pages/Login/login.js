@@ -20,16 +20,16 @@ function Login() {
 
             <div className='input'>
             <h5 className={styles.h5}> Digite seu email ou cpf :<br></br></h5>
-              <input type="user" className={styles.input} placeholder='Usuario' />
+              <input type="user" className={styles.input} placeholder='Usuário' />
             </div>
-            <br></br>
+            
             <div className='input'>
             <h5 className={styles.h5}>Digite sua senha :<br></br></h5>
               <input type="password"  className={styles.input} placeholder='Senha' />
             </div>
             <br></br>
             <div className='button-login'>
-            <button className={styles.buttoninicio} onClick={(() => navigate("/"))} >Inicio</button>
+            <button className={styles.buttoninicio} onClick={(() => navigate("/"))} >Início</button>
             <button className={styles.buttonacessar} onClick={(() =>navigate ("/Agendamento"))} >Acessar</button>
             </div>
             <div className={styles.cadastro}>
