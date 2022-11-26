@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../partials/header";
 import styles from "./styles.module.scss"
+import LogoBranca from '../../assets/img/logo-branca-unicap.png'
 
 function Home() {
   return (
@@ -16,7 +17,7 @@ function Home() {
               <p className={styles.modalVermelhoParagrafo3}>ASTEPI</p>
             </div>
             <p className={styles.modalVermelhoParagrafo4}>Contato: 2119-4157</p>
-            <p className={styles.modalVermelhoLogoUnicap}>LOGO UNICAP</p>
+            <img alt="logo" src={LogoBranca} width="100" height="100" />
           </div>
         </div>
       </section>
@@ -44,6 +45,27 @@ function Home() {
           </div>
 
         </div>
+      </section>
+      
+      <section className={styles.section3}>
+        
+          <div className={styles.atendimento}>
+            <p className={styles.atendimentoP1}>COMO FUNCIONA O ATENDIMENTO?</p>
+            <div className={styles.quemSomosLinhaFinal2}></div>
+            <p className={styles.atendimentoP2}>De preferência, é necessário realizar um pré-agendamento no site. Para agendar é necessário realizar um cadastro na aba ACESSO RÁPIDO (CLIQUE AQUI). Também é possível ir diretamente a nossa Sede, porém terão prioridade as pessoas que agendaram previamente.</p>
+          </div>
+
+          <div className={styles.atendimento2}>
+            <p className={styles.atendimentoP3}>QUEM PODE RECEBER O ATENDIMENTO?</p>
+            <div className={styles.quemSomosLinhaFinal2}></div>
+            <p className={styles.atendimentoP4}>Estão aptos a receber assessoramento/ajuizamento e atendimento jurídico pessoas que não podem pagar pelos serviços e que residam no município do Recife-PE.</p>
+          </div>
+
+          <div className={styles.atendimento3}>
+            <p className={styles.atendimentoP5}>COMO FUNCIONA O AGENDAMENTO?</p>
+            <div className={styles.quemSomosLinhaFinal2}></div>
+            <p className={styles.atendimentoP6}>É necessário realizar um cadastro básico com algumas informações pessoais como: NOME, CPF, ENDEREÇO, COMPROVANTE DE RESIDÊNCIA, EMAIL, etc. Após os dados serem conﬁrmados, é possível escolher a data e horário mais próximos para atendimento, respeitando o horário de funcionamento da ASTEPI.</p>
+          </div>
 
       </section>
 

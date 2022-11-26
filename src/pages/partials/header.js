@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/img/logo-normal.jpg'
+import Logo from '../../assets/img/logo-normal.jpg'
 import styles from "./styles.module.scss"
 
 function Header() {
@@ -31,7 +31,7 @@ function Header() {
         </li>
 
         <li className={styles.navItem}>
-          <img alt="logo" src={logo} className={styles.headerLogo}  width="100" height="100" />
+          <img alt="logo" src={Logo} className={styles.headerLogo}  width="100" height="100" />
         </li>
       </ul>
     </nav>

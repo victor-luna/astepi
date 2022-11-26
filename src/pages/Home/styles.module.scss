@@ -27,6 +27,13 @@
   color: #fff;
 }
 
+.modalVermelhoConteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .modalVermelhoParagrafo {
   font-size: 26px;
   margin: 0;
@@ -47,7 +54,7 @@
     content: '';
     color: #fff;
     border: 2px solid #fff;
-    margin-right: 16px;
+    margin-right: 2%;
   }
 }
 
@@ -62,7 +69,7 @@
 .modalVermelhoDivider {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   min-width: 350px;
 }
@@ -170,5 +177,123 @@
     height: 112px;
     transform: translateX(140px);
     margin-top: -70px;
+  }
+}
+
+.section3 {
+  background: #b81c34;
+  display: flex;
+  max-width: 100%;
+  font-family: "Roboto", sans-serif;
+  flex-direction: column;
+  padding: 3.25rem 5rem 3.25rem 5rem;
+  align-items: center;
+}
+
+.atendimento, .atendimento2, .atendimento3 {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0 1rem 0;
+  color: #fff;
+  font-weight: bold;
+  align-items: center;
+}
+
+.atendimentoP1 {
+  display: flex;
+  width: 500px;
+  max-width: 265px;
+
+  &::before {
+    content: "";
+    display: flex;
+    border-right: 2px solid #b07c1c;
+    height: 32px;
+    margin: -25px 35px 0 -20px;
+  }
+
+  &::after {
+    content: "";
+    display: flex;
+    border-top: 2px solid #b07c1c;
+    width: 100px;
+    height: 2px;
+    transform: translate(-215px, -25px);
+  }
+}
+
+.atendimentoP3 {
+  display: flex;
+  max-width: 250px;
+  margin-right: 16px;
+
+  &::before {
+    content: "";
+    display: flex;
+    border-right: 2px solid #b07c1c;
+    height: 32px;
+    margin: -25px 35px 0 -20px;
+  }
+
+  &::after {
+    content: "";
+    display: flex;
+    border-top: 2px solid #b07c1c;
+    width: 100px;
+    height: 2px;
+    transform: translate(-210px, -25px);
+  }
+}
+
+.atendimentoP5 {
+  display: flex;
+  max-width: 250px;
+  margin-right: 25px;
+
+  &::before {
+    content: "";
+    display: flex;
+    border-right: 2px solid #b07c1c;
+    height: 32px;
+    margin: -25px 35px 0 -20px;
+  }
+
+  &::after {
+    content: "";
+    display: flex;
+    border-top: 2px solid #b07c1c;
+    width: 100px;
+    height: 2px;
+    transform: translate(-206px, -25px);
+  }
+}
+
+.atendimentoP2, .atendimentoP4, .atendimentoP6 {
+  max-width: 600px;
+  margin: 0;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+}
+
+.quemSomosLinhaFinal2 {
+  display: flex;
+  flex-direction: row;
+  width: 0;
+
+  &::before {
+    content: "";
+    display: flex;
+    margin-left: -120px;
+    border-bottom: 2px solid #b07c1c;
+    width: 60px;
+    height: 73px;
+  }
+
+  &::after {
+    content: "";
+    display: flex;
+    border-right: 2px solid #b07c1c;
+    transform: translateY(43px);
+    height: 32px;
   }
 }
