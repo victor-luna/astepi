@@ -33,10 +33,11 @@ flex-direction: column;
 .primeirobloco{
 
 color:#6E2B2E;
-padding-left: 35px;
+padding-left: 45px;
 font-family: 'Roboto', sans-serif;
 margin: 20px;
 outline: unset;
+
 
 }
 
@@ -55,7 +56,7 @@ outline: unset;
     padding-left: 35px;
     position: relative;
     left: 300px;
-    bottom: 587px;
+    bottom: 600px;
     border-left: 3px solid #185c34 ;
 }
 
@@ -78,7 +79,7 @@ outline: unset;
     position: relative;
     padding-left: 35px;
     left: 600px;
-    bottom: 685px;
+    bottom: 700px;
     border-left: 3px solid #185c34;
 }
 
