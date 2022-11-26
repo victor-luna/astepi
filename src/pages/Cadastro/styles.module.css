@@ -1,18 +1,23 @@
 
-
-
-.container{
-   
+.header{
+     
 background-color: #6E2B2E ;
 height: 95px;
 padding-top: 15px;
-flex-direction: column;
 background-image: linear-gradient(
     to left right,    
     #6E2B2E 65%,
       #8b4343 
 );
 list-style: none;
+}
+
+.container{
+ background-color: #F5F4F4;  
+height: 95px;
+padding-top: 15px;
+flex-direction: column;
+
 }
 
 
@@ -26,41 +31,9 @@ list-style: none;
 
 
 
-
-.linha1{
-
-    border-right: 3px solid #185c34;
-    content: "";
-    display: flex;
-    height: 302px;
-    margin-top: -500px;
-    -webkit-transform: translateX(140px);
-    transform: translateX(140px);
-    transform: translateY(485px);
-    margin-right: 1130px;
-    
-}
-
-.linha2{
-
-    border-right: 3px solid #185c34;
-    content: "";
-    display: flex;
-    height: 292px;
-    margin-top: -270px;
-    -webkit-transform: translateX(140px);
-    transform: translateX(140px);
-    transform: translateY(450px);
-    margin-right: 790px;
-    padding-top: 400px ;
-
-
-}
-
 .primeirobloco{
 
-color:#6E2B2E;
-border: none;
+color:#6E2B2E;;
 padding-left: 35px;
 font-family: 'Roboto', sans-serif;
 margin: 20px;
@@ -74,14 +47,16 @@ outline: unset;
 }
 
 
-
 .segundobloco{
 
     color:#6E2B2E;
     border: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;     
     padding-left: 35px;
-    margin: 20px;
+    position: relative;
+    left: 300px;
+    bottom: 587px;
+    border-left: 3px solid #185c34 ;
 }
 
 .inputemail{
@@ -99,10 +74,12 @@ outline: unset;
 
     color:#6E2B2E;
     border: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;      
+    position: relative;
     padding-left: 35px;
-    margin-left: 350px;
-    margin-top: -375px;
+    left: 600px;
+    bottom: 685px;
+    border-left: 3px solid #185c34;
 }
 
 .inputcpf{
@@ -111,17 +88,6 @@ outline: unset;
 }
 
 
-.quartobloco{
-    
-    color:#6E2B2E;
-    border: none;
-    font-family: 'Roboto', sans-serif;
-    padding-left: 35px;
-    margin-left: 700px;
-    margin-top: -125px;
-    margin-bottom: 90px;
-
-}
 
 .inputendereco{
 
@@ -133,18 +99,18 @@ outline: unset;
 .button{
 
 color: #6E2B2E;
-width: 140px;
+width: 120px;
 height: 55px;
 background-color: #d3b47a ;
 font-family: 'Roboto', sans-serif;
-margin: 220px 70px;
+margin: 120px 70px;
 font-weight: bold;
 border-radius: 20px;
 text-transform: uppercase;
 border: none;
 transition-duration: 0.4s;
 cursor: pointer;
-margin-top: 200px;
+margin-top: 100px;
 }
 
 
@@ -174,6 +140,18 @@ margin-top: 200px;
   
 }
 
+.input{
+
+    border-radius: 5px;
+    
+}
+
+.input:focus{
+
+
+outline: none;
+
+}
 
 
 
