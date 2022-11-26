@@ -1,9 +1,9 @@
 
 .header{
      
-background-color: #6E2B2E ;
+background-color: #623131 ;
 height: 95px;
-padding-top: 15px;
+padding-top: 10px;
 background-image: linear-gradient(
     to left right,    
     #6E2B2E 65%,
@@ -13,9 +13,8 @@ list-style: none;
 }
 
 .container{
- background-color: #F5F4F4;  
-height: 95px;
-padding-top: 15px;
+  
+background-color: #fafafa;
 flex-direction: column;
 
 }
@@ -33,11 +32,12 @@ flex-direction: column;
 
 .primeirobloco{
 
-color:#6E2B2E;;
+color:#6E2B2E;
 padding-left: 35px;
 font-family: 'Roboto', sans-serif;
 margin: 20px;
 outline: unset;
+
 }
 
 .inputnome{
@@ -111,6 +111,7 @@ border: none;
 transition-duration: 0.4s;
 cursor: pointer;
 margin-top: 100px;
+
 }
 
 
@@ -136,7 +137,7 @@ margin-top: 100px;
     font-family: 'Roboto', sans-serif;
     padding: 55px;
     font-weight: bold;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   
 }
 
