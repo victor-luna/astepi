@@ -22,7 +22,7 @@
   flex-direction: column;
   margin: 20px auto 20px auto;
   border-radius: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   color: #fff;
 }
@@ -51,7 +51,7 @@
   padding: 0;
 
   &::after {
-    content: '';
+    content: "";
     color: #fff;
     border: 2px solid #fff;
     margin-right: 2%;
@@ -59,7 +59,7 @@
 }
 
 .modalVermelhoParagrafo3 {
-  font-size: 32px
+  font-size: 32px;
 }
 
 .modalVermelhoParagrafo4 {
@@ -82,7 +82,7 @@
   background: #fff;
   display: flex;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .quemSomos {
@@ -92,7 +92,7 @@
   margin: 20px auto 30px auto;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .quemSomosTitulo {
@@ -123,7 +123,7 @@
   text-align: justify;
   word-break: keep-all;
   color: #68141c;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
 
@@ -133,7 +133,7 @@
 
   &::after {
     margin-bottom: 35px;
-    content: '';
+    content: "";
     display: flex;
     border-bottom: 2px solid #b07c1c;
     height: 20px;
@@ -145,9 +145,9 @@
 .quemSomosConteudo {
   display: flex;
   flex-direction: row;
-  
+
   &::before {
-    content: '';
+    content: "";
     display: flex;
     border-right: 2px solid #b07c1c;
     height: 112px;
@@ -162,7 +162,7 @@
   flex-direction: row;
 
   &::before {
-    content: '';
+    content: "";
     display: flex;
     border-bottom: 2px solid #185c34;
     width: 88%;
@@ -171,7 +171,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     display: flex;
     border-right: 2px solid #185c34;
     height: 112px;
@@ -190,7 +190,9 @@
   align-items: center;
 }
 
-.atendimento, .atendimento2, .atendimento3 {
+.atendimento,
+.atendimento2,
+.atendimento3 {
   display: flex;
   flex-direction: row;
   margin: 1rem 0 1rem 0;
@@ -268,7 +270,9 @@
   }
 }
 
-.atendimentoP2, .atendimentoP4, .atendimentoP6 {
+.atendimentoP2,
+.atendimentoP4,
+.atendimentoP6 {
   max-width: 600px;
   margin: 0;
   letter-spacing: 0.15px;
@@ -299,13 +303,14 @@
 }
 
 .section4 {
-  background: url("../../assets/img/curved-background.png") no-repeat center bottom;
+  background: url("../../assets/img/curved-background.png") no-repeat center
+    bottom;
   height: 500px;
   margin-top: -4px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 //removes arrows on number input
@@ -317,17 +322,17 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
 .buttonSubmit {
   display: block;
-  color: #6E2B2E;
+  color: #6e2b2e;
   width: 286px;
   height: 35px;
-  background-color: #d3b47a ;
-  font-family: 'Roboto', sans-serif;  
+  background-color: #d3b47a;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   border-radius: 20px;
   text-transform: uppercase;
