@@ -18,31 +18,23 @@
   list-style: none;
 }
 
-.primeirobloco {
-  color: #6e2b2e;
-  padding-left: 45px;
-  font-family: "Roboto", sans-serif;
-  margin: 20px;
-  outline: unset;
+
+
+
+
+.blocopessoa{
+ align-items: center;
 }
+
 
 .inputnome {
   margin-bottom: 15px;
 }
 
-.segundobloco {
-  color: #6e2b2e;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  padding-left: 35px;
-  position: relative;
-  left: 300px;
-  bottom: 614px;
-  border-left: 3px solid #185c34;
-}
+
 
 .inputemail {
-  margin-top: 40px;
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
@@ -50,25 +42,40 @@
   margin-top: 15px;
 }
 
-.terceirobloco {
-  color: #6e2b2e;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  position: relative;
-  padding-left: 35px;
-  left: 600px;
-  bottom: 714px;
-  border-left: 3px solid #185c34;
-  transform: translateY(-7px);
-}
+
 
 .inputcpf {
   margin-bottom: 15px;
+  
+  
 }
 
-.inputendereco {
+.inputdatanasc{
   margin-bottom: 15px;
 }
+
+.inputprofissao{
+  margin-bottom: 15px;
+}
+
+.inputestadocivil{
+  margin-bottom: 15px;
+}
+
+.inputnacionalidade{
+  margin-bottom: 45px;
+}
+
+
+
+
+
+.blocoendereco{
+  margin: -930px 0px 0px 500px;
+}
+
+
+
 
 .button {
   color: #6e2b2e;
@@ -76,7 +83,7 @@
   height: 55px;
   background-color: #d3b47a;
   font-family: "Roboto", sans-serif;
-  margin: 120px 70px;
+  margin: 120px 200px;
   font-weight: bold;
   border-radius: 20px;
   text-transform: uppercase;
@@ -119,6 +126,14 @@
   border-radius: 5px;
 }
 
+.inputselect{
+  border-radius: 5px;
+  width: 175px;
+  height: 27px;
+  font-family: "Roboto", sans-serif;
+  
+}
+
 .input:focus {
   outline: none;
 }
@@ -134,8 +149,4 @@ form {
   margin: 0;
   height: auto;
   max-height: 590px;
-}
-
-.blocoprincipal {
-  max-height: 400px;
 }
