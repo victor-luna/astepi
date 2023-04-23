@@ -120,6 +120,7 @@ function Cadastro() {
                 />
               </div>
 
+
               <div className={styles.inputpass}>
                 <label htmlFor="senha">Senha</label>
                 <br />
