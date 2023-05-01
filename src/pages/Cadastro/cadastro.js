@@ -13,18 +13,18 @@ function Cadastro() {
   const [confirmarSenha, setConfirmarSenha] = React.useState("");
   const [cpf, setCpf] = React.useState("");
   const [cep, setCep] = React.useState("");
-  const [dataNasc, setDataNasc] = React.useState("");   //add
-  const [profissao, setProfissao] = React.useState("");  //add
-  const [estadoCivil, setEstadoCivil] = React.useState("");  //add
-  const [nacionalidade, setNacionalidade] = React.useState("");  //add
+  const [dataNasc, setDataNasc] = React.useState(""); //add
+  const [profissao, setProfissao] = React.useState(""); //add
+  const [estadoCivil, setEstadoCivil] = React.useState(""); //add
+  const [nacionalidade, setNacionalidade] = React.useState(""); //add
   const [rua, setRua] = React.useState(""); //add
-  const [numero, setNumero] = React.useState("")//add
-  const [complemento, setComplemento] = React.useState("")//add
-  const [telFixo, setTelFixo] = React.useState("") //add
-  const [celular, setCelular] = React.useState("")//add
-  const [bairro, setBairro] = React.useState("")//add
-  const [cidade, setCidade] = React.useState("")//add
-  const [estado, setEstado] = React.useState("")//add
+  const [numero, setNumero] = React.useState(""); //add
+  const [complemento, setComplemento] = React.useState(""); //add
+  const [telFixo, setTelFixo] = React.useState(""); //add
+  const [celular, setCelular] = React.useState(""); //add
+  const [bairro, setBairro] = React.useState(""); //add
+  const [cidade, setCidade] = React.useState(""); //add
+  const [estado, setEstado] = React.useState(""); //add
 
   tippy("[data-tippy-content]");
 
@@ -49,11 +49,11 @@ function Cadastro() {
         bairro: bairro,
         cidade: cidade,
         estado: estado,
-
       })
       .then((response) => console.log(response));
   }
 
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   return (
@@ -78,175 +78,168 @@ function Cadastro() {
       </p>
       <div className={styles.formData}>
         <form onSubmit={handleSubmit}>
-         
-            
-            <div className={styles.blocopessoa}>
-              <div className={styles.inputnome}>
-                <label htmlFor="nome">Nome</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="nome"
-                  onChange={(event) => setNome(event.target.value)}
-                  name="nome"
-                />
-              </div>
+          <div className={styles.blocopessoa}>
+            <div className={styles.inputnome}>
+              <label htmlFor="nome">Nome</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="nome"
+                onChange={(event) => setNome(event.target.value)}
+                name="nome"
+              />
+            </div>
 
-              <div className={styles.inputsobrenome}>
-                <label htmlFor="sobrenome">Sobrenome</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="sobrenome"
-                  onChange={(event) => setSobrenome(event.target.value)}
-                  name="sobrenome"
-                />
-              </div>
+            <div className={styles.inputsobrenome}>
+              <label htmlFor="sobrenome">Sobrenome</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="sobrenome"
+                onChange={(event) => setSobrenome(event.target.value)}
+                name="sobrenome"
+              />
+            </div>
 
-              <div className={styles.inputemail}>
-                <label htmlFor="email">Email</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="email"
-                  onChange={(event) => setEmail(event.target.value.toString())}
-                  name="email"
-                />
-              </div>
+            <div className={styles.inputemail}>
+              <label htmlFor="email">Email</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="email"
+                onChange={(event) => setEmail(event.target.value.toString())}
+                name="email"
+              />
+            </div>
 
-              <div className={styles.inputpass}>
-                <label htmlFor="senha">Senha</label>
-                <br />
-                <input
-                  type="password"
-                  className={styles.input}
-                  placeholder=""
-                  id="senha"
-                  onChange={(event) => setSenha(event.target.value)}
-                  name="senha"
-                />
-              </div>
+            <div className={styles.inputpass}>
+              <label htmlFor="senha">Senha</label>
+              <br />
+              <input
+                type="password"
+                className={styles.input}
+                placeholder=""
+                id="senha"
+                onChange={(event) => setSenha(event.target.value)}
+                name="senha"
+              />
+            </div>
 
-              <div className={styles.inputconpass}>
-                <label htmlFor="confirmarSenha">Confirmar Senha</label>
-                <br />
-                <input
-                  type="password"
-                  className={styles.input}
-                  placeholder=""
-                  id="confirmarSenha"
-                  onChange={(event) => setConfirmarSenha(event.target.value)}
-                  name="confirmarSenha"
-                />
-              </div>
+            <div className={styles.inputconpass}>
+              <label htmlFor="confirmarSenha">Confirmar Senha</label>
+              <br />
+              <input
+                type="password"
+                className={styles.input}
+                placeholder=""
+                id="confirmarSenha"
+                onChange={(event) => setConfirmarSenha(event.target.value)}
+                name="confirmarSenha"
+              />
+            </div>
 
-              {senha === confirmarSenha && senha != 0 ? (
-                <button type="submit" className={styles.button}>
-                  Cadastrar
-                </button>
-              ) : (
-                  <button disabled type="submit" className={styles.button}>
-                    Cadastrar
-                  </button>
-                
-              )}
-              
+            {senha === confirmarSenha && senha !== 0 ? (
+              <button type="submit" className={styles.button}>
+                Cadastrar
+              </button>
+            ) : (
+              <button disabled type="submit" className={styles.button}>
+                Cadastrar
+              </button>
+            )}
 
-              <div className={styles.inputcpf}>
-                <label htmlFor="cpf">CPF</label>
-                <br />
-                <input
-                  type="number"
-                  className={styles.input}
-                  placeholder=""
-                  id="cpf"
-                  onChange={(event) => setCpf(event.target.value)}
-                  name="cpf"
-                />
-             </div>            
+            <div className={styles.inputcpf}>
+              <label htmlFor="cpf">CPF</label>
+              <br />
+              <input
+                type="number"
+                className={styles.input}
+                placeholder=""
+                id="cpf"
+                onChange={(event) => setCpf(event.target.value)}
+                name="cpf"
+              />
+            </div>
 
-             <div className={styles.inputdatanasc}>
-                <label htmlFor="dataNasc">Data de Nascimento</label>
-                <br />
-                <input
-                  type="date"
-                  className={styles.input}
-                  placeholder=""
-                  id="dataNasc"
-                  onChange={(event) => setDataNasc(event.target.value)}
-                  name="dataNasc"
-                />
-             </div>            
+            <div className={styles.inputdatanasc}>
+              <label htmlFor="dataNasc">Data de Nascimento</label>
+              <br />
+              <input
+                type="date"
+                className={styles.input}
+                placeholder=""
+                id="dataNasc"
+                onChange={(event) => setDataNasc(event.target.value)}
+                name="dataNasc"
+              />
+            </div>
 
-             <div className={styles.inputprofissao}>
-                <label htmlFor="profissao">Profissão</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="profissao"
-                  onChange={(event) => setProfissao(event.target.value)}
-                  name="profissao"
-                  
-                />
-             </div>     
-              
-             <div className={styles.inputestadocivil}>
-                <label htmlFor="estadoCivil">Estado Civil</label>
-                <br />
-                <select className={styles.inputselect}
+            <div className={styles.inputprofissao}>
+              <label htmlFor="profissao">Profissão</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="profissao"
+                onChange={(event) => setProfissao(event.target.value)}
+                name="profissao"
+              />
+            </div>
+
+            <div className={styles.inputestadocivil}>
+              <label htmlFor="estadoCivil">Estado Civil</label>
+              <br />
+              <select
+                className={styles.inputselect}
                 placeholder=""
                 id="estadoCivil"
                 onChange={(event) => setEstadoCivil(event.target.value)}
-                  name="estadoCivil">
-                  <option className={styles.inputselect}></option>
-                  <option className={styles.inputselect}>Solteiro</option>
-                  <option className={styles.inputselect}>Casado</option>
-                  <option className={styles.inputselect}>Divorciado</option>
-                  <option className={styles.inputselect}>Separado</option>
-                  <option className={styles.inputselect}>Viúvo</option>
-                </select>
-             </div>     
+                name="estadoCivil"
+              >
+                <option className={styles.inputselect}></option>
+                <option className={styles.inputselect}>Solteiro</option>
+                <option className={styles.inputselect}>Casado</option>
+                <option className={styles.inputselect}>Divorciado</option>
+                <option className={styles.inputselect}>Separado</option>
+                <option className={styles.inputselect}>Viúvo</option>
+              </select>
+            </div>
 
-             <div className={styles.inputnacionalidade}>
-                <label htmlFor="nacionalidade">Nacionalidade</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="nacionalidade"
-                  onChange={(event) => setNacionalidade(event.target.value)}
-                  name="nacionalidade"
-                />
-             </div>    
-             </div>
+            <div className={styles.inputnacionalidade}>
+              <label htmlFor="nacionalidade">Nacionalidade</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="nacionalidade"
+                onChange={(event) => setNacionalidade(event.target.value)}
+                name="nacionalidade"
+              />
+            </div>
+          </div>
 
-
-
-
-            <div className={styles.blocoendereco}>
-              
+          <div className={styles.blocoendereco}>
             <div className={styles.inputrua}>
-                <label htmlFor="rua">Rua</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="rua"
-                  onChange={(event) => setRua(event.target.value)}
-                  name="rua"
-                />
+              <label htmlFor="rua">Rua</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="rua"
+                onChange={(event) => setRua(event.target.value)}
+                name="rua"
+              />
 
-                <div className={styles.inputnumero}>
+              <div className={styles.inputnumero}>
                 <label htmlFor="numero">Número</label>
                 <br />
                 <input
@@ -257,76 +250,73 @@ function Cadastro() {
                   onChange={(event) => setNumero(event.target.value)}
                   name="numero"
                 />
-                
-              <div className={styles.inputcep}>
-                <label htmlFor="cep">CEP</label>
-                <br />
-                <input
-                  type="number"
-                  className={styles.input}
-                  placeholder=""
-                  id="cep"
-                  onChange={(event) => setCep(event.target.value)}
-                  name="cep"
-                />
 
-                <div className={styles.inputcomplemento}>
-                <label htmlFor="complemento">Complemento</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="complemento"
-                  onChange={(event) => setComplemento(event.target.value)}
-                  name="complemento"
-                />
+                <div className={styles.inputcep}>
+                  <label htmlFor="cep">CEP</label>
+                  <br />
+                  <input
+                    type="number"
+                    className={styles.input}
+                    placeholder=""
+                    id="cep"
+                    onChange={(event) => setCep(event.target.value)}
+                    name="cep"
+                  />
 
+                  <div className={styles.inputcomplemento}>
+                    <label htmlFor="complemento">Complemento</label>
+                    <br />
+                    <input
+                      type="text"
+                      className={styles.input}
+                      placeholder=""
+                      id="complemento"
+                      onChange={(event) => setComplemento(event.target.value)}
+                      name="complemento"
+                    />
 
-              <div className={styles.inputcelular}>
-                <label htmlFor="celular">Celular</label>
-                <br />
-                <input
-                  type="tel"
-                  className={styles.input}
-                  required placeholder="(xx) xxxxx-xxxx"
-                  id="celular"
-                  onChange={(event) => setCelular(event.target.value)}
-                  name="celular"
-                />
-
-            </div>
-
-            </div>
-                <div className={styles.inputtelfixo}>
-                <label htmlFor="telefoneFixo">Telefone Fixo</label>
-                <br />
-                <input
-                  type="tel"
-                  className={styles.input}
-                  required placeholder="(xx) xxxx-xxxx"
-                  id="telefonefixo"
-                  onChange={(event) => setTelFixo(event.target.value)}
-                  name="telefonefixo"
-                />
-              </div>
-
-              </div>
+                    <div className={styles.inputcelular}>
+                      <label htmlFor="celular">Celular</label>
+                      <br />
+                      <input
+                        type="tel"
+                        className={styles.input}
+                        required
+                        placeholder="(xx) xxxxx-xxxx"
+                        id="celular"
+                        onChange={(event) => setCelular(event.target.value)}
+                        name="celular"
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.inputtelfixo}>
+                    <label htmlFor="telefoneFixo">Telefone Fixo</label>
+                    <br />
+                    <input
+                      type="tel"
+                      className={styles.input}
+                      required
+                      placeholder="(xx) xxxx-xxxx"
+                      id="telefonefixo"
+                      onChange={(event) => setTelFixo(event.target.value)}
+                      name="telefonefixo"
+                    />
+                  </div>
+                </div>
                 <div className={styles.inputbairro}>
-                <label htmlFor="bairro">Bairro</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="bairro"
-                  onChange={(event) => setBairro(event.target.value)}
-                  name="Bairro"
-                />
+                  <label htmlFor="bairro">Bairro</label>
+                  <br />
+                  <input
+                    type="text"
+                    className={styles.input}
+                    placeholder=""
+                    id="bairro"
+                    onChange={(event) => setBairro(event.target.value)}
+                    name="Bairro"
+                  />
+                </div>
               </div>
-
-              </div>
-                <div className={styles.inputcidade}>
+              <div className={styles.inputcidade}>
                 <label htmlFor="cidade">Cidade</label>
                 <br />
                 <input
@@ -338,22 +328,20 @@ function Cadastro() {
                   name="cidade"
                 />
               </div>
-              </div>
-                <div className={styles.inputestado}>
-                <label htmlFor="estado">Estado</label>
-                <br />
-                <input
-                  type="text"
-                  className={styles.input}
-                  placeholder=""
-                  id="estado"
-                  onChange={(event) => setEstado(event.target.value)}
-                  name="estado"
-                />
-              </div>
-
+            </div>
+            <div className={styles.inputestado}>
+              <label htmlFor="estado">Estado</label>
+              <br />
+              <input
+                type="text"
+                className={styles.input}
+                placeholder=""
+                id="estado"
+                onChange={(event) => setEstado(event.target.value)}
+                name="estado"
+              />
+            </div>
           </div>
-          
         </form>
         <div style={{ height: "210px", backgroundColor: "#fafafa" }}></div>
       </div>

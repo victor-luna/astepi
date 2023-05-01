@@ -343,14 +343,17 @@ input[type="number"] {
   font-size: 18px;
 }
 
-form {
-  border-left: 2px solid #145c38;
-  border-right: 2px solid #145c38;
-  display: table;
-  border-collapse: separate;
-  border-spacing: 30px;
-  margin-top: 3rem;
+.formSection {
+  form {
+    border-left: 2px solid #145c38;
+    border-right: 2px solid #145c38;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 30px;
+    margin-top: 3rem;
+  }
 }
+
 
 legend {
   color: #fff;

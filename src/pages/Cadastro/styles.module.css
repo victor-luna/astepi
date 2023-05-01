@@ -141,12 +141,13 @@
 .formData {
   height: auto;
   max-height: 590px;
+
+  form {
+    border: none;
+    border-spacing: 0;
+    margin: 0;
+    height: auto;
+    max-height: 590px;
+  }
 }
 
-form {
-  border: none;
-  border-spacing: 0;
-  margin: 0;
-  height: auto;
-  max-height: 590px;
-}

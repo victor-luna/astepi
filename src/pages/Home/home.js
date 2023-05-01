@@ -7,7 +7,7 @@ import logoFooter from "../../assets/img/logo-unicap-rodape.png";
 import logoFooter2 from "../../assets/img/logo-unicap-rodape2.png";
 import logoFooter3 from "../../assets/img/logo-normal.jpg";
 
-function Home() {
+const Home = () => {
   return (
     <div className={styles.home}>
       <Header />
@@ -94,7 +94,7 @@ function Home() {
       </section>
 
       <section className={styles.section4}>
-        <div>
+        <div className={styles.formSection}>
           <form>
             <div className={styles.contato}>
               <legend>CONTATO</legend>
@@ -168,6 +168,6 @@ function Home() {
       <p className={styles.finalText}>TODOS OS DIREITOS RESERVADOS.</p>
     </div>
   );
-}
+};
 
 export default Home;
