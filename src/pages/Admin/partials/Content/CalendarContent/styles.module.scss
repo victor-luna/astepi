@@ -1,0 +1,92 @@
+.calendar {
+  border: 1px solid black;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+
+  & .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: lightgray;
+
+    & button {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    & h2 {
+      margin: 0;
+    }
+  }
+
+  & .daysOfWeek {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+    padding: 5px 10px;
+
+    & span {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
+  & .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+
+    & .day {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      height: 50px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: lightgray;
+      }
+
+      &.empty {
+        background-color: #f8f8f8;
+      }
+
+      &.selected {
+        background-color: blue;
+        color: white;
+      }
+    }
+  }
+
+  & .fetchedData {
+    border: 1px solid black;
+    padding: 10px;
+
+    & .fetchedDataInner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & h3 {
+        margin: 0;
+      }
+
+      & p {
+        margin: 0;
+        font-size: 14px;
+      }
+    }
+  }
+}
