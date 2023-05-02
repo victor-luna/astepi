@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
+import axios from "axios";
 
 const CalendarContent = () => {
   const [calendar, setCalendar] = useState([]);
@@ -45,10 +46,11 @@ const CalendarContent = () => {
 
     setSelectedDate(dateString);
 
-    fetch(`https://cat-fact.herokuapp.com/facts`) // `/api/getDataForDay/${dateString}`  uses dateSring for day
-      .then((response) => response.json())
-      .then((data) => {
-        setFetchedData(data);
+    axios
+      .get("https://astepi-unicap.herokuapp.com/usuarios")
+      .then((response) => {
+        console.log(response.data);
+        setFetchedData(response.data);
       })
       .catch((error) => {
         console.error("Erro na requisição do calendário!", error);
@@ -112,11 +114,7 @@ const CalendarContent = () => {
       </div>
       <div className={styles.fetchedData}>
         {fetchedData ? (
-          <div className={styles.fetchedDataInner}>
-            <h3>{fetchedData[0].type}</h3>
-            <p>{fetchedData[0].text}</p>
-            {fetchedData && <p>dados backend</p>}
-          </div>
+          <div className={styles.fetchedDataInner}></div>
         ) : (
           <div>Data not available yet</div>
         )}
