@@ -2,6 +2,9 @@
   border: 1px solid black;
   display: inline-block;
   font-family: Arial, sans-serif;
+  min-width: 600px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 
   & .header {
     display: flex;
@@ -9,6 +12,9 @@
     align-items: center;
     padding: 10px;
     background-color: lightgray;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 
     & button {
       background-color: transparent;
@@ -31,41 +37,74 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightgray;
+    background-color: #fff;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
     padding: 5px 10px;
 
     & span {
       font-weight: bold;
       font-size: 16px;
     }
+
+    & .daysOfWeek1 {
+      margin-left: 30px;
+    }
+
+    & .daysOfWeek2 {
+      transform: translateX(-6px);
+    }
+
+    & .daysOfWeek3 {
+      transform: translateX(-12px);
+    }
+
+    & .daysOfWeek4 {
+      transform: translateX(-18px);
+    }
+
+    & .daysOfWeek5 {
+      transform: translateX(-26px);
+    }
+
+    & .daysOfWeek6 {
+      transform: translateX(-32px);
+    }
+
+    & .daysOfWeek7 {
+      transform: translateX(-40px);
+    }
   }
 
   & .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 5px;
+    grid-gap: 0;
     padding: 10px;
 
     & .day {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid black;
+      border: none;
+      font-weight: 700;
+      width: 50px;
+      max-width: 50px;
       height: 50px;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
+      box-sizing: border-box;
+      margin-left: 12px;
 
       &:hover {
         background-color: lightgray;
-      }
-
-      &.empty {
-        background-color: #f8f8f8;
+        border-radius: 10px;
       }
 
       &.selected {
-        background-color: blue;
-        color: white;
+        border: 2px solid #c5882a;
+        border-radius: 10px;
+        max-height: 50px;
       }
     }
   }
@@ -88,5 +127,15 @@
         font-size: 14px;
       }
     }
+  }
+
+  .tituloCalendar {
+    text-transform: uppercase;
+    margin-right: 8px !important;
+  }
+
+  .tituloAnoCalendar {
+    text-transform: lowercase;
+    font-size: 12px;
   }
 }

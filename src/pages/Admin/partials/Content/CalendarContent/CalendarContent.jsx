@@ -47,7 +47,7 @@ const CalendarContent = () => {
     setSelectedDate(dateString);
 
     axios
-      .get("https://astepi-unicap.herokuapp.com/usuarios")
+      .get("https://astepi-unicap.herokuapp.com/agendamentos")
       .then((response) => {
         console.log(response.data);
         setFetchedData(response.data);
@@ -67,14 +67,26 @@ const CalendarContent = () => {
             )
           }
         >
-          Prev
+          Anterior
         </button>
-        <h2>
-          {currentMonth.toLocaleString("default", {
-            month: "long",
-            year: "numeric",
-          })}
-        </h2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "baseline",
+          }}
+        >
+          <h2 className={styles.tituloCalendar}>
+            {currentMonth.toLocaleString("default", {
+              month: "long",
+            })}
+          </h2>{" "}
+          <span className={styles.tituloAnoCalendar}>
+            {currentMonth.toLocaleString("default", {
+              year: "numeric",
+            })}
+          </span>
+        </div>
         <button
           onClick={() =>
             setCurrentMonth(
@@ -82,17 +94,17 @@ const CalendarContent = () => {
             )
           }
         >
-          Next
+          Próximo
         </button>
       </div>
       <div className={styles.daysOfWeek}>
-        <span>D</span>
-        <span>S</span>
-        <span>T</span>
-        <span>Q</span>
-        <span>Q</span>
-        <span>S</span>
-        <span>S</span>
+        <span className={styles.daysOfWeek1}>D</span>
+        <span className={styles.daysOfWeek2}>S</span>
+        <span className={styles.daysOfWeek3}>T</span>
+        <span className={styles.daysOfWeek4}>Q</span>
+        <span className={styles.daysOfWeek5}>Q</span>
+        <span className={styles.daysOfWeek6}>S</span>
+        <span className={styles.daysOfWeek7}>S</span>
       </div>
       <div className={styles.days}>
         {calendar.map((day, index) => (
@@ -114,9 +126,12 @@ const CalendarContent = () => {
       </div>
       <div className={styles.fetchedData}>
         {fetchedData ? (
-          <div className={styles.fetchedDataInner}></div>
+          <div className={styles.fetchedDataInner}>
+            Agendamento em
+            https://astepi-unicap.herokuapp.com/agendamentos/id-agendamento
+          </div>
         ) : (
-          <div>Data not available yet</div>
+          <div>Agendamento do dia não disponível</div>
         )}
       </div>
     </div>
