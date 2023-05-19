@@ -7,6 +7,7 @@ const CalendarContent = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [fetchedData, setFetchedData] = useState(null);
+  const [fetchedUserNames, setFetchedUserNames] = useState([]);
 
   useEffect(() => {
     const getCalendarDays = () => {
@@ -17,14 +18,12 @@ const CalendarContent = () => {
       const days = [];
 
       for (let i = 1; i <= lastDay.getDate(); i++) {
-        // Cria array representando o mês e dias da semana
         const date = new Date(year, month, i);
         const dayOfWeek = date.getDay();
         days.push({ day: i, dayOfWeek });
       }
 
       for (let i = 0; i < firstDay.getDay(); i++) {
-        // Define o primeiro dia do mês, removendo dias do mês anterior
         days.unshift(null);
       }
 
@@ -34,7 +33,9 @@ const CalendarContent = () => {
     getCalendarDays();
   }, [currentMonth]);
 
-  const handleClick = (day) => {
+  useEffect(() => {}, [fetchedUserNames]);
+
+  const handleClick = async (day) => {
     if (!day) {
       return;
     }
@@ -46,15 +47,46 @@ const CalendarContent = () => {
 
     setSelectedDate(dateString);
 
-    axios
-      .get("https://astepi-unicap.herokuapp.com/agendamentos")
-      .then((response) => {
-        console.log(response.data);
-        setFetchedData(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro na requisição do calendário!", error);
+    try {
+      const response = await axios.get(
+        "https://astepi-unicap.herokuapp.com/agendamentos"
+      );
+      setFetchedData(response.data);
+
+      const userIds = response.data.content.map((item) => item.usuario);
+      const usersPromises = userIds.map((userId) =>
+        axios.get(`https://astepi-unicap.herokuapp.com/usuarios/${userId}`)
+      );
+
+      const usersResponses = await Promise.all(usersPromises);
+      const userNames = usersResponses.map((userResponse) => {
+        const matchingAgendamentos = userResponse.data.agendamentos;
+
+        const hasScheduledAppointments = matchingAgendamentos.some(
+          (agendamento) => {
+            const agendamentoDia = parseInt(agendamento.dia, 10);
+            const agendamentoMes = parseInt(agendamento.mes, 10);
+
+            return (
+              agendamentoDia === dayOfMonth &&
+              agendamentoMes === month &&
+              agendamento.ano === year.toString()
+            );
+          }
+        );
+
+        if (hasScheduledAppointments) {
+          return userResponse.data.nome;
+        }
+
+        return null;
       });
+
+      const filteredUserNames = userNames.filter(Boolean);
+      setFetchedUserNames(filteredUserNames);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -124,14 +156,30 @@ const CalendarContent = () => {
           </div>
         ))}
       </div>
-      <div className={styles.fetchedData}>
+      <div className={`${styles.fetchedData}`}>
         {fetchedData ? (
-          <div className={styles.fetchedDataInner}>
-            Agendamento em
-            https://astepi-unicap.herokuapp.com/agendamentos/id-agendamento
+          <div className={`${styles.fetchedDataInner}`}>
+            {fetchedUserNames.length > 0 ? (
+              <div>
+                <h4>Usuários:</h4>
+                <ul className={`${styles.userList}`}>
+                  {fetchedUserNames.map((userName, userIndex) => (
+                    <li key={userIndex}>{userName}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <p className={`${styles.emptyListMessage}`}>
+                  Não há agendamentos para este dia!
+                </p>
+              </div>
+            )}
           </div>
         ) : (
-          <div>Agendamento do dia não disponível</div>
+          <div className={styles.WelcomeMessage}>
+            <p>Selecione a data para ver os agendamentos!</p>
+          </div>
         )}
       </div>
     </div>
