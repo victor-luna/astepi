@@ -454,78 +454,111 @@ const CalendarContent = () => {
               </button>
 
               <form>
-                <input
-                  type="text"
-                  value={newSchedule?.userId}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      userId: e.target.value,
-                    })
-                  }
-                  placeholder="User Id"
-                />
-                <input
-                  type="text"
-                  value={newSchedule?.ano}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      ano: e.target.value,
-                    })
-                  }
-                  placeholder="Ano"
-                />
-                <input
-                  type="text"
-                  value={newSchedule?.dia}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      dia: e.target.value,
-                    })
-                  }
-                  placeholder="Dia"
-                />
-                <input
-                  type="text"
-                  value={newSchedule?.horario}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      horario: e.target.value,
-                    })
-                  }
-                  placeholder="Horario"
-                />
-                <input
-                  type="text"
-                  value={newSchedule?.mes}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      mes: e.target.value,
-                    })
-                  }
-                  placeholder="Mês"
-                />
-                <input
-                  type="text"
-                  value={newSchedule?.observacao}
-                  onChange={(e) =>
-                    setNewSchedule({
-                      ...newSchedule,
-                      observacao: e.target.value,
-                    })
-                  }
-                  placeholder="Observação"
-                />
+                <div className={styles.formRow}>
+                  <label htmlFor="userId">User Id (id do usuário):</label>
+                  <input
+                    type="text"
+                    id="userId"
+                    value={newSchedule?.userId}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        userId: e.target.value,
+                      })
+                    }
+                    placeholder="User Id"
+                  />
+                </div>
 
-                <button
-                  onClick={(event) => handleCreateSchedule(event, newSchedule)}
-                >
-                  Create
-                </button>
+                <div className={styles.formRow}>
+                  <label htmlFor="dia">Dia (ex: 12):</label>
+                  <input
+                    type="text"
+                    id="dia"
+                    value={newSchedule?.dia}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        dia: e.target.value,
+                      })
+                    }
+                    placeholder="Dia"
+                  />
+                </div>
+
+                <div className={styles.formRow}>
+                  <label htmlFor="mes">Mês (ex: 06):</label>
+                  <input
+                    type="text"
+                    id="mes"
+                    value={newSchedule?.mes}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        mes: e.target.value,
+                      })
+                    }
+                    placeholder="Mês"
+                  />
+                </div>
+
+                <div className={styles.formRow}>
+                  <label htmlFor="ano">Ano (ex: 2023):</label>
+                  <input
+                    type="text"
+                    id="ano"
+                    value={newSchedule?.ano}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        ano: e.target.value,
+                      })
+                    }
+                    placeholder="Ano"
+                  />
+                </div>
+
+                <div className={styles.formRow}>
+                  <label htmlFor="horario">Horário (ex: 15h):</label>
+                  <input
+                    type="text"
+                    id="horario"
+                    value={newSchedule?.horario}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        horario: e.target.value,
+                      })
+                    }
+                    placeholder="Horario"
+                  />
+                </div>
+
+                <div className={styles.formRow}>
+                  <label htmlFor="observacao">Observação:</label>
+                  <input
+                    type="text"
+                    id="observacao"
+                    value={newSchedule?.observacao}
+                    onChange={(e) =>
+                      setNewSchedule({
+                        ...newSchedule,
+                        observacao: e.target.value,
+                      })
+                    }
+                    placeholder="Observação"
+                  />
+                </div>
+
+                <div className={styles.formRow}>
+                  <button
+                    onClick={(event) =>
+                      handleCreateSchedule(event, newSchedule)
+                    }
+                  >
+                    Create
+                  </button>
+                </div>
               </form>
             </div>
           </div>
