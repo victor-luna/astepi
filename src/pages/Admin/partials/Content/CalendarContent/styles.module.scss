@@ -225,11 +225,48 @@
 }
 
 .crudMenu {
-  /* Add your styles for the CRUD menu container */
-}
+  margin-left: 1.5rem;
+  button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #78040c;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-.agendamentosList {
-  /* Add your styles for the agendamentos list container */
+    &:hover {
+      transform: translateY(-2px);
+      background-color: #5d0209;
+    }
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .schedulesAll {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(340px, -218px);
+  }
+
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    input {
+      margin-left: 3rem;
+    }
+  }
 }
 
 .modal {
@@ -238,18 +275,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Slightly darkened background */
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modalContent {
-  max-width: 800px; /* Adjust the width as needed */
-  background-color: #ffffff; /* Background color for the modal content */
-  padding: 20px;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 25px 40px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .closeButton {
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    right: 0;
+    top: 0;
+    left: 95px;
+  }
+
+  .editSchedule {
+    display: flex;
+    left: 150px;
+    position: relative;
+  }
 }
 
 .closeButton {
@@ -268,62 +320,6 @@
   transform: rotate(90deg);
 }
 
-.calendar {
-  /* Add your styles for the calendar container */
-}
-
-.header {
-  /* Add your styles for the calendar header */
-}
-
-.daysOfWeek {
-  /* Add your styles for the days of week container */
-}
-
-.days {
-  /* Add your styles for the calendar days container */
-}
-
-.day {
-  /* Add your styles for the calendar day */
-}
-
-.empty {
-  /* Add your styles for the empty day */
-}
-
-.selected {
-  /* Add your styles for the selected day */
-}
-
-.fetchedData {
-  /* Add your styles for the fetchedData container */
-}
-
-.fetchedDataInner {
-  /* Add your styles for the fetchedDataInner container */
-}
-
-.userList {
-  /* Add your styles for the user list */
-}
-
-.emptyListMessage {
-  /* Add your styles for the empty list message */
-}
-
-.WelcomeMessage {
-  /* Add your styles for the welcome message */
-}
-
-.crudMenu {
-  /* Add your styles for the CRUD menu container */
-}
-
-.agendamentosList {
-  /* Add your styles for the agendamentos list container */
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -334,14 +330,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modalContent {
-  max-width: 800px; /* Adjust the width as needed */
-  background-color: #ffffff; /* Background color for the modal content */
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .closeButton {

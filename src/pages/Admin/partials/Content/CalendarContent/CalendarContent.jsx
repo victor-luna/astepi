@@ -107,7 +107,11 @@ const CalendarContent = () => {
   };
 
   const handleOpenModal = (schedule) => {
-    setSelectedSchedule(schedule);
+    const user =
+      searchResult.find((user) => user.id === schedule.usuario) || {};
+    const userName = user.nome || "";
+
+    setSelectedSchedule({ ...schedule, userName });
     setIsModalOpen(true);
   };
 
@@ -121,6 +125,10 @@ const CalendarContent = () => {
 
   const handleOpenSchedules = async () => {
     setIsOpenSchedules((prevState) => !prevState);
+
+    if (searchResult) {
+      setSearchResult(() => []);
+    }
 
     if (!isOpenSchedules) {
       try {
@@ -187,7 +195,7 @@ const CalendarContent = () => {
 
   const handleDeleteSchedule = async () => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this schedule?"
+      "Você tem certeza que deseja deletar esse agendamento? Essa ação éz"
     );
 
     if (!confirmed) {
@@ -218,6 +226,10 @@ const CalendarContent = () => {
       return;
     }
 
+    if (isOpenSchedules) {
+      setIsOpenSchedules((prevState) => !prevState);
+    }
+
     try {
       const response = await axios.get(
         `https://astepi-unicap.herokuapp.com/usuarios`
@@ -242,7 +254,7 @@ const CalendarContent = () => {
   const SearchResult = ({ users }) => {
     return (
       <div>
-        <h4>Matching Users:</h4>
+        <h4>Usuário(s) encontrado(s):</h4>
         {users.length > 0 ? (
           <ul className={styles.userList}>
             {users.map((user, index) => (
@@ -410,23 +422,26 @@ const CalendarContent = () => {
       <div className={styles.crudMenu}>
         <div
           className={styles.searchContainer}
-          style={{ display: "flex", flexDirection: "row", gap: "1rem" }}
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
         >
-          <div className={styles.search}>
-            <input
-              type="text"
-              placeholder="Search by name or ID"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button onClick={handleSearch}>Search</button>
-          </div>
+          <button onClick={() => handleOpenNewScheduleModal()}>
+            Criar um agendamento
+          </button>
           <button onClick={handleOpenSchedules}>
             {isOpenSchedules ? "Fechar agendamentos" : "Buscar agendamentos"}
           </button>
-          <button onClick={() => handleOpenNewScheduleModal()}>Create</button>
+          <div className={styles.search}>
+            <input
+              type="text"
+              placeholder="Digite o nome ou Id do usuário"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>
+              Buscar por nome ou Id do Usuário
+            </button>
+          </div>
         </div>
-        {searchResult.length > 0 && <SearchResult users={searchResult} />}
 
         {searchCurrentNewSchedule && (
           <div className={styles.modal}>
@@ -518,92 +533,132 @@ const CalendarContent = () => {
 
         {isOpenSchedules && (
           <>
-            {fetchedSchedules.map((schedule, index) => (
-              <div className={styles.schedule} key={index}>
-                <p>{schedule.usuario}</p>
-                <p>
-                  {schedule.horario} ({schedule.dia}/{schedule.mes}/
-                  {schedule.ano})
-                </p>
-                <p>{schedule.observacao}</p>
-                <button onClick={() => handleOpenModal(schedule)}>
-                  Edit Schedule
-                </button>
-              </div>
-            ))}
+            <div className={styles.schedulesAll}>
+              {fetchedSchedules.map((schedule, index) => (
+                <div className={styles.schedule} key={index}>
+                  <p>{schedule.usuario}</p>
+                  <p>
+                    {schedule.horario} ({schedule.dia}/{schedule.mes}/
+                    {schedule.ano})
+                  </p>
+                  <p>{schedule.observacao}</p>
+                  <button onClick={() => handleOpenModal(schedule)}>
+                    Edit Schedule
+                  </button>
+                </div>
+              ))}
+            </div>
           </>
         )}
+
+        {searchResult.length > 0 && <SearchResult users={searchResult} />}
+
         {isModalOpen && (
           <div className={styles.modal}>
+            {console.log("isModalOpen", selectedSchedule)}
             <div className={styles.modalContent}>
-              <button className={styles.closeButton} onClick={handleCloseModal}>
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-              {<h2>Agendamento de {selectedSchedule.usuario}</h2>}
+              <div style={{ display: "flex" }}>
+                <button onClick={() => handleDeleteSchedule()}>
+                  Deletar Agendamento
+                </button>
+                <button
+                  className={styles.closeButton}
+                  onClick={handleCloseModal}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
+              </div>
+              <h2 style={{ marginTop: "35px" }}>
+                {selectedSchedule.userName &&
+                  `Agendamento de ${selectedSchedule.userName}`}
+              </h2>
               {console.log(selectedSchedule, "selectedSchedule")}
 
               <form>
-                <input
-                  type="text"
-                  value={selectedSchedule.horario}
-                  onChange={(e) =>
-                    setSelectedSchedule({
-                      ...selectedSchedule,
-                      horario: e.target.value,
-                    })
-                  }
-                />
-                <input
-                  type="text"
-                  value={selectedSchedule.dia}
-                  onChange={(e) =>
-                    setSelectedSchedule({
-                      ...selectedSchedule,
-                      dia: e.target.value,
-                    })
-                  }
-                />
+                <div className={styles.formRow}>
+                  <label htmlFor="horario">Horário (ex: 19h):</label>
+                  <input
+                    type="text"
+                    id="horario"
+                    value={selectedSchedule.horario}
+                    onChange={(e) =>
+                      setSelectedSchedule({
+                        ...selectedSchedule,
+                        horario: e.target.value,
+                      })
+                    }
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  value={selectedSchedule.mes}
-                  onChange={(e) =>
-                    setSelectedSchedule({
-                      ...selectedSchedule,
-                      mes: e.target.value,
-                    })
-                  }
-                />
+                <div className={styles.formRow}>
+                  <label htmlFor="dia">Dia (ex: 15):</label>
+                  <input
+                    type="text"
+                    id="dia"
+                    value={selectedSchedule.dia}
+                    onChange={(e) =>
+                      setSelectedSchedule({
+                        ...selectedSchedule,
+                        dia: e.target.value,
+                      })
+                    }
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  value={selectedSchedule.ano}
-                  onChange={(e) =>
-                    setSelectedSchedule({
-                      ...selectedSchedule,
-                      ano: e.target.value,
-                    })
-                  }
-                />
+                <div className={styles.formRow}>
+                  <label htmlFor="mes">Mês (ex: 06):</label>
+                  <input
+                    type="text"
+                    id="mes"
+                    value={selectedSchedule.mes}
+                    onChange={(e) =>
+                      setSelectedSchedule({
+                        ...selectedSchedule,
+                        mes: e.target.value,
+                      })
+                    }
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  value={selectedSchedule.observacao}
-                  onChange={(e) =>
-                    setSelectedSchedule({
-                      ...selectedSchedule,
-                      observacao: e.target.value,
-                    })
-                  }
-                />
+                <div className={styles.formRow}>
+                  <label htmlFor="ano">Ano (ex: 2023):</label>
+                  <input
+                    type="text"
+                    id="ano"
+                    value={selectedSchedule.ano}
+                    onChange={(e) =>
+                      setSelectedSchedule({
+                        ...selectedSchedule,
+                        ano: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <div
+                  className={styles.formRow}
+                  style={{ marginBottom: "45px" }}
+                >
+                  <label htmlFor="observacao">Observação:</label>
+                  <input
+                    type="text"
+                    id="observacao"
+                    value={selectedSchedule.observacao}
+                    onChange={(e) =>
+                      setSelectedSchedule({
+                        ...selectedSchedule,
+                        observacao: e.target.value,
+                      })
+                    }
+                  />
+                </div>
               </form>
 
-              {/* Save/Update Button */}
-              <button onClick={handleSaveSchedule}>Save/Update Schedule</button>
-
-              {/* Delete Button */}
-              <button onClick={() => handleDeleteSchedule()}>
-                Delete Schedule
+              <button
+                onClick={handleSaveSchedule}
+                className={styles.editSchedule}
+              >
+                Editar Agendamento
               </button>
             </div>
           </div>
