@@ -449,6 +449,7 @@ const CalendarContent = () => {
               <button
                 className={styles.closeButton}
                 onClick={handleCloseNewSchedule}
+                style={{ left: "344px", top: "0", marginBottom: "32px" }}
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
