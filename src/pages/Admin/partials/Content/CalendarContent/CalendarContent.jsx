@@ -449,11 +449,20 @@ const CalendarContent = () => {
               <button
                 className={styles.closeButton}
                 onClick={handleCloseNewSchedule}
-                style={{ left: "344px", top: "0", marginBottom: "32px" }}
+                style={{ left: "344px", top: "0", marginBottom: "0" }}
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
 
+              <h3
+                style={{
+                  margin: 0,
+                  marginBottom: "16px",
+                  transform: "translate(-2px, -30px)",
+                }}
+              >
+                Crie um Agendamento
+              </h3>
               <form>
                 <div className={styles.formRow}>
                   <label htmlFor="userId">User Id (id do usuário):</label>
