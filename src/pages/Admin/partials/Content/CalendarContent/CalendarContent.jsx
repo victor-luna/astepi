@@ -429,50 +429,51 @@ const CalendarContent = () => {
                   <ul className={`${styles.userList}`}>
                     {[...new Set(fetchedUserNames)].map(
                       (userName, userIndex) => {
-                        const userSchedules = fetchedData.content.filter(
-                          (schedule) => {
-                            const foundUser = fetchedData.content.some(
-                              (data) => data.usuario === schedule.usuario
-                            );
-
-                            return foundUser;
-                          }
-                        );
-
                         return (
                           <li key={userIndex}>
                             {userName}
+                            <ul className={`${styles.scheduleList}`}>
+                              {fetchedData.content.map(
+                                (schedule, scheduleIndex) => {
+                                  const {
+                                    dia,
+                                    mes,
+                                    ano,
+                                    horario,
+                                    observacao,
+                                    usuario,
+                                  } = schedule;
+                                  const scheduleDate = `${ano}-${parseInt(
+                                    mes
+                                  )}-${dia}`;
+                                  console.log("1", schedule.usuario);
+                                  const desiredSchedule =
+                                    fetchedData.content.filter(
+                                      (item) => item.usuario === usuario
+                                    );
 
-                            {userSchedules && (
-                              <ul className={`${styles.scheduleList}`}>
-                                {userSchedules.map(
-                                  (schedule, scheduleIndex) => {
-                                    const {
-                                      dia,
-                                      mes,
-                                      ano,
-                                      horario,
-                                      observacao,
-                                    } = schedule;
-                                    const scheduleDate = `${ano}-${parseInt(
-                                      mes
-                                    )}-${dia}`;
+                                  console.log(
+                                    "2",
+                                    fetchedData.content.filter(
+                                      (item) => item.usuario === usuario
+                                    )
+                                  );
 
-                                    if (scheduleDate === selectedDate) {
-                                      return (
-                                        <li
-                                          key={`${userName}-${scheduleIndex}`}
-                                        >
-                                          <span>{horario}</span> - {observacao}
-                                        </li>
-                                      );
-                                    }
-
-                                    return null;
+                                  if (
+                                    scheduleDate === selectedDate &&
+                                    desiredSchedule.length > 0
+                                  ) {
+                                    return (
+                                      <li key={`${userName}-${scheduleIndex}`}>
+                                        <span>{horario}</span> - {observacao}
+                                      </li>
+                                    );
                                   }
-                                )}
-                              </ul>
-                            )}
+
+                                  return null;
+                                }
+                              )}
+                            </ul>
                           </li>
                         );
                       }
@@ -507,7 +508,7 @@ const CalendarContent = () => {
           <button onClick={handleOpenSchedules}>
             {isOpenSchedules ? "Fechar agendamentos" : "Buscar agendamentos"}
           </button>
-          <div className={styles.search}>
+          <div className={styles.search} style={{ marginTop: "2rem" }}>
             <input
               type="text"
               placeholder="Digite o nome ou Id do usuário"
