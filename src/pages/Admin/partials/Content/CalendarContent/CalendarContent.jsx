@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "./styles.module.scss";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CalendarContent = () => {
   const [calendar, setCalendar] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState("");
   const [fetchedData, setFetchedData] = useState(null);
   const [fetchedUserNames, setFetchedUserNames] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +21,7 @@ const CalendarContent = () => {
   const [searchCurrentNewSchedule, setSearchCurrentNewSchedule] =
     useState(false);
   const [newSchedule, setNewSchedule] = useState({
-    userId: "",
+    cpf: "",
     ano: "",
     dia: "",
     horario: "",
@@ -102,7 +104,7 @@ const CalendarContent = () => {
       setFetchedUserNames(filteredUserNames);
       console.log(usersResponses, "usersResponses");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Erro.", error);
     }
   };
 
@@ -165,7 +167,7 @@ const CalendarContent = () => {
 
         setFetchedSchedules(formattedSchedules || []);
       } catch (error) {
-        console.error("Erro ao buscar os agendamentos: ", error);
+        console.error("Erro ao buscar os agendamentos.", error);
       }
     }
   };
@@ -174,7 +176,6 @@ const CalendarContent = () => {
     try {
       const { id, dia, mes, ano, horario, observacao } = selectedSchedule;
 
-      // Make the PUT request to update the schedule
       await axios.put(
         `https://astepi-unicap.herokuapp.com/agendamentos/${id}`,
         {
@@ -186,16 +187,16 @@ const CalendarContent = () => {
         }
       );
 
-      // Update the necessary state variables
-      // Close the modal, reset form fields, or perform any other required actions
+      toast.success("Agendamento atualizado!");
     } catch (error) {
-      console.error("Error updating schedule:", error);
+      console.error("Error updating schedule.", error);
+      toast.error("An error occurred while updating the schedule.");
     }
   };
 
   const handleDeleteSchedule = async () => {
     const confirmed = window.confirm(
-      "Você tem certeza que deseja deletar esse agendamento? Essa ação éz"
+      "Você tem certeza que deseja deletar esse agendamento? Essa ação é irreversível."
     );
 
     if (!confirmed) {
@@ -214,8 +215,11 @@ const CalendarContent = () => {
       );
 
       handleCloseModal();
+
+      toast.success("Agendamento deletado com sucesso!");
     } catch (error) {
-      console.error("Error deleting schedule:", error);
+      console.error("Erro ao deletar agendamento.", error);
+      toast.error("Erro ao deletar agendamento. Por favor, tente novamente."); // Show error toast notification
     }
   };
 
@@ -247,7 +251,7 @@ const CalendarContent = () => {
 
       setSearchResult(filteredUsers);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Erro:", error);
     }
   };
 
@@ -268,7 +272,7 @@ const CalendarContent = () => {
                     </p>
                     <p>{schedule.observacao}</p>
                     <button onClick={() => handleOpenModal(schedule)}>
-                      Edit Schedule
+                      Editar agendamento
                     </button>
                   </div>
                 ))}
@@ -290,30 +294,55 @@ const CalendarContent = () => {
     event.preventDefault();
 
     try {
-      const { userId, ...payload } = newSchedule;
-      // Make the POST request to create a new schedule
-      const response = await axios.post(
-        `https://astepi-unicap.herokuapp.com/usuarios/${newSchedule.userId}/agendamentos`,
+      const { cpf, ...payload } = newSchedule;
+      const userResponse = await axios.get(
+        `https://astepi-unicap.herokuapp.com/usuarios`
+      );
+      const user = userResponse?.data?.content;
+      const selectedUser = user.map((usuarioSelecionado) => {
+        return usuarioSelecionado.cpf;
+      });
+      const selectedUserIndex = selectedUser.findIndex(
+        (userCPF) => userCPF === cpf
+      );
+      const foundUser = user[selectedUserIndex];
+
+      console.log(foundUser.nome, "aqui");
+
+      if (!foundUser) {
+        toast.error("Usuário não encontrado. Verifique o CPF do usuário.");
+        return;
+      }
+
+      const scheduleResponse = await axios.post(
+        `https://astepi-unicap.herokuapp.com/usuarios/${foundUser.id}/agendamentos`,
         payload
       );
 
-      const createdSchedule = response.data;
+      const createdSchedule = scheduleResponse.data;
 
       setFetchedSchedules((prevSchedules) => [
         ...prevSchedules,
-        createdSchedule,
+        {
+          ...createdSchedule,
+          usuario: foundUser.nome || "",
+        },
       ]);
+
       setSearchCurrentNewSchedule(false);
       setNewSchedule({
-        userId: "",
+        cpf: "",
         ano: "",
         dia: "",
         horario: "",
         mes: "",
         observacao: "",
       });
+
+      toast.success("Agendamento criado com sucesso!");
     } catch (error) {
-      console.error("Error creating schedule:", error);
+      console.error("Erro ao criar agendamento.", error);
+      toast.error("Erro ao criar agendamento. Por favor, tente novamente.");
     }
   };
 
@@ -398,9 +427,57 @@ const CalendarContent = () => {
                 <div>
                   <h4>Usuários:</h4>
                   <ul className={`${styles.userList}`}>
-                    {fetchedUserNames.map((userName, userIndex) => (
-                      <li key={userIndex}>{userName}</li>
-                    ))}
+                    {[...new Set(fetchedUserNames)].map(
+                      (userName, userIndex) => {
+                        const userSchedules = fetchedData.content.filter(
+                          (schedule) => schedule.usuario === userName
+                        );
+
+                        return (
+                          <li key={userIndex}>
+                            {userName}
+                            {console.log(
+                              "AAAAAAAAAAAA",
+                              fetchedUserNames,
+                              fetchedData
+                            )}
+                            {userSchedules.length > 0 && (
+                              <ul className={`${styles.scheduleList}`}>
+                                {userSchedules.map(
+                                  (schedule, scheduleIndex) => {
+                                    const {
+                                      dia,
+                                      mes,
+                                      ano,
+                                      horario,
+                                      observacao,
+                                    } = schedule;
+                                    const scheduleDate = new Date(
+                                      `${ano}-${mes}-${dia}`
+                                    );
+
+                                    if (
+                                      scheduleDate.getTime() ===
+                                      selectedDate.getTime()
+                                    ) {
+                                      return (
+                                        <li
+                                          key={`${userName}-${scheduleIndex}`}
+                                        >
+                                          <span>{horario}</span> - {observacao}
+                                        </li>
+                                      );
+                                    }
+
+                                    return null;
+                                  }
+                                )}
+                              </ul>
+                            )}
+                          </li>
+                        );
+                      }
+                    )}
                   </ul>
                 </div>
               ) : (
@@ -420,6 +497,7 @@ const CalendarContent = () => {
       </div>
 
       <div className={styles.crudMenu}>
+        <ToastContainer />
         <div
           className={styles.searchContainer}
           style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
@@ -465,18 +543,18 @@ const CalendarContent = () => {
               </h3>
               <form>
                 <div className={styles.formRow}>
-                  <label htmlFor="userId">User Id (id do usuário):</label>
+                  <label htmlFor="cpf">CPF do Usuário:</label>
                   <input
                     type="text"
-                    id="userId"
-                    value={newSchedule?.userId}
+                    id="cpf"
+                    value={newSchedule?.cpf}
                     onChange={(e) =>
                       setNewSchedule({
                         ...newSchedule,
-                        userId: e.target.value,
+                        cpf: e.target.value,
                       })
                     }
-                    placeholder="User Id"
+                    placeholder="CPF"
                   />
                 </div>
 
@@ -566,7 +644,7 @@ const CalendarContent = () => {
                       handleCreateSchedule(event, newSchedule)
                     }
                   >
-                    Create
+                    Criar agendamento
                   </button>
                 </div>
               </form>
@@ -586,7 +664,7 @@ const CalendarContent = () => {
                   </p>
                   <p>{schedule.observacao}</p>
                   <button onClick={() => handleOpenModal(schedule)}>
-                    Edit Schedule
+                    Editar agendamento
                   </button>
                 </div>
               ))}
