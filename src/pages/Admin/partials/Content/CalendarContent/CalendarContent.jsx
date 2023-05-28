@@ -225,7 +225,7 @@ const CalendarContent = () => {
 
   const handleSearch = async () => {
     if (searchQuery.length < 3) {
-      window.confirm("Digite pelo menos 3 (três) caractéres.");
+      window.alert("Digite pelo menos 3 (três) caractéres.");
       setSearchQuery("");
       return;
     }
@@ -430,18 +430,20 @@ const CalendarContent = () => {
                     {[...new Set(fetchedUserNames)].map(
                       (userName, userIndex) => {
                         const userSchedules = fetchedData.content.filter(
-                          (schedule) => schedule.usuario === userName
+                          (schedule) => {
+                            const foundUser = fetchedData.content.some(
+                              (data) => data.usuario === schedule.usuario
+                            );
+
+                            return foundUser;
+                          }
                         );
 
                         return (
                           <li key={userIndex}>
                             {userName}
-                            {console.log(
-                              "AAAAAAAAAAAA",
-                              fetchedUserNames,
-                              fetchedData
-                            )}
-                            {userSchedules.length > 0 && (
+
+                            {userSchedules && (
                               <ul className={`${styles.scheduleList}`}>
                                 {userSchedules.map(
                                   (schedule, scheduleIndex) => {
@@ -452,14 +454,11 @@ const CalendarContent = () => {
                                       horario,
                                       observacao,
                                     } = schedule;
-                                    const scheduleDate = new Date(
-                                      `${ano}-${mes}-${dia}`
-                                    );
+                                    const scheduleDate = `${ano}-${parseInt(
+                                      mes
+                                    )}-${dia}`;
 
-                                    if (
-                                      scheduleDate.getTime() ===
-                                      selectedDate.getTime()
-                                    ) {
+                                    if (scheduleDate === selectedDate) {
                                       return (
                                         <li
                                           key={`${userName}-${scheduleIndex}`}
