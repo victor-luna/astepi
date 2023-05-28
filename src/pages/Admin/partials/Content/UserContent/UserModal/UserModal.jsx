@@ -104,7 +104,10 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
               />
               <span style={{ letterSpacing: "0.12rem" }}>
                 <span className={styles.selectedUserCPF}>
-                  {selectedUser.cpf}
+                  {selectedUser.cpf.replace(
+                    /^(\d{3})(\d{3})(\d{3})(\d{2})$/,
+                    "$1.$2.$3-$4"
+                  )}
                 </span>
               </span>
             </div>
