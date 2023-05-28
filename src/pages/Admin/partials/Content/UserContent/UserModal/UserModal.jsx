@@ -104,9 +104,8 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
               />
               <span style={{ letterSpacing: "0.12rem" }}>
                 <span className={styles.selectedUserCPF}>
-                  {selectedUser.cpf.slice(0, -3)}
+                  {selectedUser.cpf}
                 </span>
-                <span className={styles.asterisks}>***</span>
               </span>
             </div>
             <div className={styles.selectedUserName}>{selectedUser.nome}</div>
