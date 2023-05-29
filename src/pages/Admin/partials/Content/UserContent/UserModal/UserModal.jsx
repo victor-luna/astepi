@@ -133,10 +133,10 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
         </div>
 
         <div className={styles.content}>{renderContent()}</div>
-      </div>
 
-      <div className={styles.closeButton} onClick={handleCloseClick}>
-        <FontAwesomeIcon icon={faTimes} />
+        <div className={styles.closeButton} onClick={handleCloseClick}>
+          <FontAwesomeIcon icon={faTimes} />
+        </div>
       </div>
     </div>
   );
