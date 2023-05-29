@@ -10,7 +10,7 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
   const [showFormSidebar, setShowFormSidebar] = useState(false);
 
   const formSidebarItems = [
-    { label: "Análise Econômica", icon: "chart-bar" },
+    { label: "Análise Socioeconômica", icon: "chart-bar" },
     { label: "Declaração Inicial", icon: "file-alt" },
   ];
 
