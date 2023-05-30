@@ -108,7 +108,7 @@ function Cadastro() {
         agendamento, é necessario preencher as informações abaixo.
       </p>
       <div className={styles.formData}>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className={styles.blocopessoa}>
             <div style={{ transform: "translateY(-53px)" }}>
               <div className={styles.inputnome}>
@@ -186,7 +186,10 @@ function Cadastro() {
             </div>
 
             <div
-              style={{ transform: "translateY(4px);", marginLeft: "3.5rem" }}
+              style={{
+                transform: "translate: translateY(4px)",
+                marginLeft: "3.5rem",
+              }}
             >
               <div className={styles.inputusername}>
                 <label htmlFor="username">Usuário</label>
@@ -405,7 +408,11 @@ function Cadastro() {
           </div>
         </form>
         {password === confirmarSenha && password != 0 ? (
-          <button type="submit" className={styles.button}>
+          <button
+            type="submit"
+            className={styles.button}
+            onClick={handleSubmit}
+          >
             Cadastrar
           </button>
         ) : (
