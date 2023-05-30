@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = ({ menuItems, selectedMenuItem, setSelectedMenuItem }) => {
   return (
@@ -12,7 +14,11 @@ const Sidebar = ({ menuItems, selectedMenuItem, setSelectedMenuItem }) => {
           }`}
           onClick={() => setSelectedMenuItem(item.label)}
         >
-          <i className={`fas fa-${item.icon} ${styles.sidebarIcon}`}></i>
+          <FontAwesomeIcon
+            icon={item.icon}
+            className={styles.sidebarIcon}
+            style={{ color: item.color }}
+          />
           {item.label}
         </div>
       ))}

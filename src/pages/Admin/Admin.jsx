@@ -3,6 +3,12 @@ import HeaderAdmin from "./partials/HeaderAdmin/HeaderAdmin";
 import Sidebar from "./partials/SideBar/SideBar";
 import UserContent from "./partials/Content/UserContent/UserContent";
 import CalendarContent from "./partials/Content/CalendarContent/CalendarContent";
+import {
+  faUsers,
+  faCalendarDays,
+  faGaugeHigh,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import styles from "./styles.module.scss";
 
 const Admin = () => {
@@ -10,9 +16,10 @@ const Admin = () => {
     useState("Painel de controle");
 
   const menuItems = [
-    { label: "Painel de controle", icon: "dashboard" },
-    { label: "Usuários", icon: "users" },
-    { label: "Calendário", icon: "cog" },
+    { label: "Painel de controle", icon: faGaugeHigh, color: "lightgray" },
+    { label: "Usuários", icon: faUsers, color: "lightgray" },
+    { label: "Calendário", icon: faCalendarDays, color: "lightgray" },
+    { label: "Novo usuário", icon: faPlus, color: "lightgray" },
   ];
 
   const getContent = () => {
