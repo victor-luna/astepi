@@ -3,6 +3,7 @@ import HeaderAdmin from "./partials/HeaderAdmin/HeaderAdmin";
 import Sidebar from "./partials/SideBar/SideBar";
 import UserContent from "./partials/Content/UserContent/UserContent";
 import CalendarContent from "./partials/Content/CalendarContent/CalendarContent";
+import CreateUser from "./partials/Content/UserContent/CreateUser/CreateUser";
 import {
   faUsers,
   faCalendarDays,
@@ -30,6 +31,8 @@ const Admin = () => {
         return <UserContent />;
       case "Calendário":
         return <CalendarContent />;
+      case "Novo usuário":
+        return <CreateUser />;
       default:
         return null;
     }
