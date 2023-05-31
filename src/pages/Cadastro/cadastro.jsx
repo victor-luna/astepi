@@ -41,7 +41,7 @@ function Cadastro() {
     return `${day}-${month}-${year}`;
   }
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -81,15 +81,18 @@ function Cadastro() {
             }
           )
           .then(() => {
-            toast.success("Usuário cadastrado com sucesso!!");
-            toast.onClose(() => {
-              // Redirect to the home page
-              history.push("/");
-            });
+            toast.success(
+              "Usuário cadastrado com sucesso! Você será redirecionado para a página inicial"
+            );
+            setTimeout(() => {
+              navigate("/");
+            }, 6000);
           })
           .catch((error) => {
             console.error("Erro: ", error);
-            toast.error("An error occurred while updating the schedule.");
+            toast.error(
+              "Erro ao cadastrar usuário. Por favor, tente novamente."
+            );
           });
       })
       .catch((error) => {
