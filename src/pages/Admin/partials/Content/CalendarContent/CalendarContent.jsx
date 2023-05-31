@@ -190,7 +190,7 @@ const CalendarContent = () => {
       toast.success("Agendamento atualizado!");
     } catch (error) {
       console.error("Error updating schedule.", error);
-      toast.error("An error occurred while updating the schedule.");
+      toast.error("Erro ao atualizar o cadastro. Por favor, tente novamente.");
     }
   };
 
@@ -219,7 +219,7 @@ const CalendarContent = () => {
       toast.success("Agendamento deletado com sucesso!");
     } catch (error) {
       console.error("Erro ao deletar agendamento.", error);
-      toast.error("Erro ao deletar agendamento. Por favor, tente novamente."); // Show error toast notification
+      toast.error("Erro ao deletar agendamento. Por favor, tente novamente.");
     }
   };
 

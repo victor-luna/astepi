@@ -3,6 +3,9 @@ import styles from "./styles.module.scss";
 import logo from "../../assets/img/logo-normal.jpg";
 import axios from "axios";
 import tippy from "tippy.js";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -37,6 +40,8 @@ function Cadastro() {
     const year = dateParts[0];
     return `${day}-${month}-${year}`;
   }
+
+  const history = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -76,10 +81,15 @@ function Cadastro() {
             }
           )
           .then(() => {
-            console.log("Cadastro realizado");
+            toast.success("Usuário cadastrado com sucesso!!");
+            toast.onClose(() => {
+              // Redirect to the home page
+              history.push("/");
+            });
           })
           .catch((error) => {
             console.error("Erro: ", error);
+            toast.error("An error occurred while updating the schedule.");
           });
       })
       .catch((error) => {
@@ -89,6 +99,7 @@ function Cadastro() {
 
   return (
     <div className={styles.container}>
+      <ToastContainer />
       <nav className={styles.header}>
         <li className={styles.navItem}>
           <img
