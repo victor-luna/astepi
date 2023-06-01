@@ -7,12 +7,44 @@ function Login() {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.containerLogin}>
-      <div className={styles.modalCentral}>
-        <div className={styles.modalConteudo}>
-          <h1 className={styles.h1}>Login</h1>
+   
+    <>
+    <div className={styles.container}>
+        
+     
+      <div className={styles.container1}>
 
-          <li className={styles.navItem}>
+      <h2 className={styles.h2}>Login</h2>
+
+        <div className={styles.input}>
+          <label for="number">Digite seu Email ou CPF :</label>
+          <input type="user" placeholder="Usuário"  id="usuario" name="usuario"/> 
+        </div>
+      
+        <div className={styles.input}>
+          <label for="number">Digite sua senha :</label>
+          <input type="password" placeholder="Senha" id="senha" name="senha"/>
+        </div>
+
+        <div className={styles.buttom}>
+       
+          <button onClick={() => navigate("/Agendamento")}>Acessar</button>
+        </div>
+
+        <div className={styles.buttom}>
+        
+        <button onClick={()=> navigate("/")}>Início</button>
+        </div>
+
+        <div className={styles.cadastro}>
+        <a href="/cadastro">Não possui cadastro?</a>
+        </div>
+
+      </div>
+    
+         <div className={styles.container2}>
+
+         <li className={styles.navItem}>
             <img
               alt="logo"
               src={logo}
@@ -22,45 +54,19 @@ function Login() {
             />
           </li>
 
-          <div className="input">
-            <h5 className={styles.h5}>
-              {" "}
-              Digite seu email ou cpf :<br></br>
-            </h5>
-            <input type="user" className={styles.input} placeholder="Usuário" />
-          </div>
-
-          <div className="input">
-            <h5 className={styles.h5}>
-              Digite sua senha :<br></br>
-            </h5>
-            <input
-              type="password"
-              className={styles.input}
-              placeholder="Senha"
-            />
-          </div>
-          <br></br>
-          <div className="button-login">
-            <button
-              className={styles.buttoninicio}
-              onClick={() => navigate("/")}
-            >
-              Início
-            </button>
-            <button
-              className={styles.buttonacessar}
-              onClick={() => navigate("/Agendamento")}
-            >
-              Acessar
-            </button>
-          </div>
-          <div className={styles.cadastro}>
-            <a href="/cadastro">Não possui conta?</a>
-          </div>
-        </div>
-      </div>
-    </div>
+            <h2 className={styles.h2}>Astepi</h2>
+            <h3 className={styles.h2}>Assistencia Judiciária</h3>
+         
+         <div className={styles.container3}></div>
+         
+         </div>
+    
+       </div>
+    
+  
+  
+    </>
+    
   );
 }
 
