@@ -915,7 +915,7 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
             <button type="submit">Enviar</button>
           </form>
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             autoClose={3000}
             hideProgressBar
           />
@@ -955,7 +955,7 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
             ))}
           </div>
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             autoClose={3000}
             hideProgressBar
           />
@@ -1246,9 +1246,10 @@ const UserModal = ({ selectedUser, handleCloseModal }) => {
             <button type="submit">Salvar</button>
           </form>
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             autoClose={3000}
             hideProgressBar={true}
+            style={{ marginTop: "62px !important" }}
           />{" "}
           {/* Container para exibir os alertas */}
         </>
