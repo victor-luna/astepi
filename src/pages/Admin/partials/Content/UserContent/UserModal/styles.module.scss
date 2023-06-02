@@ -34,6 +34,12 @@
   overflow: auto;
   position: relative;
   left: -46.8px;
+
+  .content {
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: clip;
+  }
 }
 .sidebarWrapper {
   background-color: #481c24;
