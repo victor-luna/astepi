@@ -1,0 +1,94 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .closeButton {
+    position: absolute;
+    top: 1.5%;
+    left: 97%;
+    cursor: pointer;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.modalContent {
+  background-color: #fff;
+  padding: 0;
+  width: 70%;
+  height: 82.7%;
+  display: flex;
+  overflow: auto;
+  position: relative;
+  left: -46.8px;
+  margin-top: 2rem;
+
+  .content {
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: clip;
+  }
+}
+.sidebarWrapper {
+  background-color: #481c24;
+  color: #fff;
+  left: 0;
+  width: 250px;
+  height: 100%;
+}
+
+.userHeader {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    font-size: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .selectedUserCPF {
+    transform: translateY(-4px);
+    margin-left: 4px !important;
+  }
+
+  .asterisks {
+    margin-left: 0.12rem;
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .selectedUserName {
+    margin-top: 0.5rem;
+  }
+}
+
+.sidebar {
+  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.5rem;
+  .backButton {
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+  }
+}

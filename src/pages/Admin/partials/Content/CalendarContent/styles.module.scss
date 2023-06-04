@@ -1,0 +1,374 @@
+.calendar {
+  border: 1px solid black;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  min-width: 600px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  & .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: lightgray;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    & button {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    & h2 {
+      margin: 0;
+    }
+  }
+
+  & .daysOfWeek {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 5px 10px;
+
+    & span {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    & .daysOfWeek1 {
+      margin-left: 30px;
+    }
+
+    & .daysOfWeek2 {
+      transform: translateX(-6px);
+    }
+
+    & .daysOfWeek3 {
+      transform: translateX(-12px);
+    }
+
+    & .daysOfWeek4 {
+      transform: translateX(-18px);
+    }
+
+    & .daysOfWeek5 {
+      transform: translateX(-26px);
+    }
+
+    & .daysOfWeek6 {
+      transform: translateX(-32px);
+    }
+
+    & .daysOfWeek7 {
+      transform: translateX(-40px);
+    }
+  }
+
+  & .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0;
+    padding: 10px;
+
+    & .day {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      font-weight: 700;
+      width: 50px;
+      max-width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      box-sizing: border-box;
+      margin-left: 12px;
+
+      &:hover {
+        background-color: lightgray;
+        border-radius: 10px;
+      }
+
+      &.selected {
+        border: 2px solid #c5882a;
+        border-radius: 10px;
+        max-height: 50px;
+      }
+    }
+  }
+
+  & .fetchedData {
+    border: 1px solid black;
+    padding: 10px;
+
+    & .fetchedDataInner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & h3 {
+        margin: 0;
+      }
+
+      & p {
+        margin: 0;
+      }
+    }
+  }
+
+  .tituloCalendar {
+    text-transform: uppercase;
+    margin-right: 8px !important;
+  }
+
+  .tituloAnoCalendar {
+    text-transform: lowercase;
+    font-size: 12px;
+  }
+
+  .fetchedData {
+    background-color: #481c24;
+    padding: 10px;
+    margin-top: 20px;
+    color: #ffffff;
+  }
+
+  .fetchedDataInner {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 100px;
+    font-size: 16px;
+  }
+
+  .userList {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .userList li {
+    margin-bottom: 5px;
+  }
+
+  .emptyListMessage {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  .WelcomeMessage {
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.calendar {
+  /* Add your styles for the calendar container */
+}
+
+.header {
+  /* Add your styles for the calendar header */
+}
+
+.daysOfWeek {
+  /* Add your styles for the days of week container */
+}
+
+.days {
+  /* Add your styles for the calendar days container */
+}
+
+.day {
+  /* Add your styles for the calendar day */
+}
+
+.empty {
+  /* Add your styles for the empty day */
+}
+
+.selected {
+  /* Add your styles for the selected day */
+}
+
+.fetchedData {
+  /* Add your styles for the fetchedData container */
+}
+
+.fetchedDataInner {
+  /* Add your styles for the fetchedDataInner container */
+}
+
+.userList {
+  /* Add your styles for the user list */
+}
+
+.emptyListMessage {
+  /* Add your styles for the empty list message */
+}
+
+.WelcomeMessage {
+  /* Add your styles for the welcome message */
+}
+
+.crudMenu {
+  margin-left: 1.5rem;
+  button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #78040c;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: translateY(-2px);
+      background-color: #5d0209;
+    }
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .schedulesAll {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(340px, -218px);
+  }
+
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    input {
+      margin-left: 3rem;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .formRow {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      input {
+        margin-left: 3rem;
+      }
+    }
+  }
+
+  .modalContent {
+    .closeButton {
+      flex-direction: row;
+      position: relative;
+      display: flex;
+      right: 0;
+      top: 0;
+      left: 115px;
+    }
+  }
+}
+
+.modalContent {
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 25px 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .closeButton {
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    right: 0;
+    top: 0;
+    left: 115px;
+  }
+
+  .editSchedule {
+    display: flex;
+    left: 150px;
+    position: relative;
+  }
+}
+
+.closeButton {
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeButton {
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
+}
