@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={styles.section3}>
+      <section className={styles.section3} id="section-atendimento">
         <div className={styles.atendimento}>
           <p className={styles.atendimentoP1}>COMO FUNCIONA O ATENDIMENTO?</p>
           <div className={styles.quemSomosLinhaFinal2}></div>

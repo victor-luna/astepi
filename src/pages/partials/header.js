@@ -1,8 +1,18 @@
 import React from "react";
-import Logo from "../../assets/img/logo-normal.jpg";
+import Logo from "../../assets/img/unicap-png-logo.png";
 import styles from "./styles.module.scss";
 
 function Header() {
+  const handleScrollToAtendimento = (event) => {
+    event.preventDefault();
+
+    const sectionAtendimento = document.querySelector("#section-atendimento");
+    sectionAtendimento.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   return (
     <nav className={styles.header}>
       <ul
@@ -10,25 +20,36 @@ function Header() {
         style={{ display: "flex", flexDirection: "row" }}
       >
         <li className={styles.navItem}>
+          <img
+            alt="logo"
+            src={Logo}
+            className={styles.headerLogo}
+            width="100"
+            height="100"
+          />
+        </li>
+
+        <li className={styles.navItem}>
           <a className={styles.navLink} href="/">
-            Home
+            PÁGINA INICIAL
           </a>
         </li>
 
         <li className={styles.navItem}>
-          <a className={styles.navLink} href="/conheca-a-astepi">
+          <a
+            className={styles.navLink}
+            href="https://portal.unicap.br/w/astepi-assist%C3%8Ancia-judici%C3%81ria"
+          >
             CONHEÇA A ASTEPI
           </a>
         </li>
 
         <li className={styles.navItem}>
-          <a className={styles.navLink} href="/noticias">
-            NOTÍCIAS
-          </a>
-        </li>
-
-        <li className={styles.navItem}>
-          <a className={styles.navLink} href="/atendimento">
+          <a
+            className={styles.navLink}
+            href="/atendimento"
+            onClick={handleScrollToAtendimento}
+          >
             COMO RECEBER ATENDIMENTO?
           </a>
         </li>
@@ -39,21 +60,11 @@ function Header() {
           </a>
         </li>
 
-        <li className={styles.navItem}>
+        {/* <li className={styles.navItem}>
           <a className={styles.navLink} href="/acesso-rapido">
             ACESSO RÁPIDO
           </a>
-        </li>
-
-        <li className={styles.navItem}>
-          <img
-            alt="logo"
-            src={Logo}
-            className={styles.headerLogo}
-            width="100"
-            height="100"
-          />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

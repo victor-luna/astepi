@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../../../assets/img/layout_set_logo.png";
+import Logo from "../../../../assets/img/unicap-png-logo.png";
 import styles from "./styles.module.scss";
 
 const HeaderAdmin = () => {
