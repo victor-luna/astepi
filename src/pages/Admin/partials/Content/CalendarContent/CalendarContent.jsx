@@ -511,12 +511,12 @@ const CalendarContent = () => {
           <div className={styles.search} style={{ marginTop: "2rem" }}>
             <input
               type="text"
-              placeholder="Digite o nome ou Id do usuário"
+              placeholder="Digite o nome do usuário"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button onClick={handleSearch}>
-              Buscar por nome ou Id do Usuário
+              Buscar pelo nome do Usuário
             </button>
           </div>
         </div>
