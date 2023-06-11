@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../../../assets/img/logo-normal.jpg";
+import Logo from "../../../../assets/img/layout_set_logo.png";
 import styles from "./styles.module.scss";
 
 const HeaderAdmin = () => {
@@ -15,16 +15,18 @@ const HeaderAdmin = () => {
             display: "flex",
             background: "#582424",
             margin: 0,
-            padding: 0,
+            padding: "8px 0 8px 0",
           }}
         >
-          <img
-            alt="logo"
-            src={Logo}
-            className={styles.headerLogo}
-            width="100"
-            height="100"
-          />
+          <a href="/" alt="Ir para página inicial">
+            <img
+              alt="logo"
+              src={Logo}
+              className={styles.headerLogo}
+              width="100"
+              height="100"
+            />
+          </a>
         </li>
 
         <li

@@ -1,9 +1,17 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "./styles.module.scss";
 
 const Sidebar = ({ menuItems, selectedMenuItem, setSelectedMenuItem }) => {
+  const navigate = useNavigate();
+
+  const handleExit = () => {
+    navigate("/login");
+  };
+
   return (
     <div className={styles.sidebar}>
       {menuItems.map((item) => (
@@ -22,6 +30,10 @@ const Sidebar = ({ menuItems, selectedMenuItem, setSelectedMenuItem }) => {
           {item.label}
         </div>
       ))}
+      <div className={styles.sidebarItem} onClick={handleExit}>
+        <FontAwesomeIcon icon={faArrowLeft} className={styles.sidebarIcon} />
+        Sair
+      </div>
     </div>
   );
 };

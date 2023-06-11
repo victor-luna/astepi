@@ -148,7 +148,13 @@ const Home = () => {
           <p className={styles.paragrafoContato2}>
             SEDE – Rua Afonso Pena, 249, Recife-PE
           </p>
-          <img alt="logo" src={MapIcon} width="100" height="100" />
+          <a
+            href="https://goo.gl/maps/adQd9Wr5kqYQv2d8A"
+            alt="Clique para ver no mapa"
+            target="_blank"
+          >
+            <img alt="logo" src={MapIcon} width="100" height="100" />
+          </a>
         </div>
       </section>
 
