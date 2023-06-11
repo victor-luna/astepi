@@ -101,7 +101,6 @@ function Login() {
               id="senha"
               name="senha"
               required
-              onChange={(e) => setPassword(e.target.value)}
               className={styles.inputedit}
             />
           </div>
