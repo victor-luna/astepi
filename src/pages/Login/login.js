@@ -14,7 +14,7 @@ function Login() {
           <h2 className={styles.h2}>Login</h2>
 
           <div className={styles.input}>
-            <label htmlFor="usuario">Digite seu Email ou CPF :</label> <br></br>
+            <label htmlFor="usuario">Digite o nome do Usuário:</label> <br></br>
             <input
               type="text"
               placeholder="Usuário"
